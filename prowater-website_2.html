@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProWater — India's 1st Piped RO Water on Subscription</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a4d2e;
+    --green-mid: #2d7a4f;
+    --green-light: #4caf7d;
+    --green-pale: #e8f5ed;
+    --lime: #8dc63f;
+    --lime-bright: #a8d940;
+    --gold: #f5c518;
+    --cream: #fafdf7;
+    --white: #ffffff;
+    --text-dark: #0d2818;
+    --text-mid: #2d4a35;
+    --text-light: #6b8c75;
+    --red-alert: #e63946;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  #hero, #waste-section, #how, #solution, #pricing, #benefits, #contact, #problem {
+    scroll-margin-top: 90px;
+  }
+
+  body {
+    font-family: 'Poppins', 'Poppins Fallback', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(78, 75, 102);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', 'Poppins Fallback', sans-serif;
+  }
+
+  .poppins-h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: rgb(12, 58, 64);
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .poppins-h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgb(10, 10, 10);
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .poppins-h3-large {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: rgb(12, 58, 64);
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(250,253,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45,122,79,0.1);
+    transition: box-shadow 0.3s;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--green-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--lime-bright);
+    font-weight: 700;
+  }
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+  .nav-logo-text span { color: var(--lime); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-mid); }
+  .nav-cta {
+    background: var(--green-dark);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    padding-top: 80px;
+  }
+  .hero-left {
+    background: var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.08);
+    bottom: -200px; right: -150px;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.05);
+    top: -100px; left: -80px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(141,198,63,0.15);
+    border: 1px solid rgba(141,198,63,0.3);
+    border-radius: 50px;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+  .hero-badge-dot {
+    width: 7px; height: 7px;
+    background: var(--lime-bright);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--lime-bright);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 44px;
+    max-width: 420px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--lime-bright);
+    color: var(--green-dark);
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(141,198,63,0.4); }
+  .btn-secondary {
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--white); }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 1;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--lime-bright);
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-right {
+    background: var(--green-pale);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 50px;
+    position: relative;
+  }
+  .hero-visual-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 28px;
+    width: 100%;
+    max-width: 620px;
+    box-shadow: 0 20px 60px rgba(26,77,46,0.12);
+    position: relative;
+    z-index: 1;
+  }
+  .hero-visual-top {
+    background: var(--green-dark);
+    border-radius: 16px;
+    padding: 20px 16px 16px;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual-top::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.1);
+    bottom: -80px; right: -60px;
+  }
+  .ro-plant-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+  .hero-feature-icon {
+    width: 28px; height: 28px;
+    background: var(--green-pale);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-feature-icon svg {
+    width: 14px; height: 14px;
+    stroke: var(--green-mid);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  .hero-trust {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(26,77,46,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .trust-avatars {
+    display: flex;
+  }
+  .trust-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    background: var(--green-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-left: -8px;
+  }
+  .trust-avatar:first-child { margin-left: 0; }
+  .trust-text { font-size: 12px; color: var(--text-light); }
+  .trust-text strong { color: var(--green-dark); }
+
+  /* FLOATING DECO */
+  .hero-deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(76,175,125,0.12);
+  }
+
+  /* SECTION SHARED */
+  section { padding: 100px 60px; }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-mid);
+    margin-bottom: 16px;
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--lime);
+  }
+  .section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 56px;
+  }
+
+  /* PROBLEM SECTION */
+  .problems {
+    background: var(--white);
+  }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 20px;
+  }
+  .problem-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid rgba(26,77,46,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .problem-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,77,46,0.1); }
+  .problem-card.danger { border-left: 4px solid var(--red-alert); }
+  .problem-card.warning { border-left: 4px solid #f5a623; }
+  .problem-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(26,77,46,0.06);
+    position: absolute;
+    top: 12px; right: 20px;
+    line-height: 1;
+  }
+  .problem-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .problem-icon.red { background: rgba(230,57,70,0.1); }
+  .problem-icon.amber { background: rgba(245,166,35,0.1); }
+  .problem-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+  .problem-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* WASTE COUNTER */
+  .waste-highlight {
+    background: var(--green-dark);
+    border-radius: 28px;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin: 60px 0 0;
+  }
+  .waste-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .waste-text h3 span { color: var(--gold); }
+  .waste-text p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+  .waste-table {
+    background: rgba(255,255,255,0.07);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .waste-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+  }
+  .waste-table-row.header {
+    background: rgba(141,198,63,0.15);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--lime-bright);
+  }
+  .waste-table-row:not(.header) { color: rgba(255,255,255,0.8); }
+  .waste-table-row.alert { background: rgba(230,57,70,0.12); color: #ff8b93; font-weight: 600; }
+  .waste-table-row:last-child { border-bottom: none; }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--green-dark);
+    color: var(--white);
+  }
+  .how-it-works .section-h2 { color: var(--white); }
+  .how-it-works .section-lead { color: rgba(255,255,255,0.6); }
+  .how-it-works .section-tag { color: var(--lime-bright); }
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .steps-container::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 60px; right: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(141,198,63,0.3), transparent);
+    z-index: 0;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+    transition: background 0.25s;
+  }
+  .step-card:hover { background: rgba(255,255,255,0.09); }
+  .step-number {
+    width: 44px; height: 44px;
+    border-radius: 14px;
+    background: var(--lime-bright);
+    color: var(--green-dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* SOLUTION */
+  .solution {
+    background: var(--cream);
+  }
+  .solution-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .solution-visual {
+    background: var(--green-dark);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .solution-visual::before {
+    content: '';
+    position: absolute;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.07);
+    bottom: -120px; right: -80px;
+  }
+  .solution-visual-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .solution-visual-sub {
+    font-size: 13px;
+    color: var(--lime-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 36px;
+  }
+  .system-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .diagram-node {
+    background: rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .diagram-node-icon {
+    width: 36px; height: 36px;
+    background: rgba(141,198,63,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .diagram-node-text { flex: 1; }
+  .diagram-node-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--lime-bright);
+    margin-bottom: 2px;
+  }
+  .diagram-node-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+  }
+  .diagram-arrow {
+    text-align: center;
+    color: rgba(141,198,63,0.5);
+    font-size: 18px;
+    margin: -6px 0;
+  }
+
+  .solution-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .benefit-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .benefit-icon-wrap {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: var(--green-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .benefit-icon-wrap svg {
+    width: 22px; height: 22px;
+    stroke: var(--green-mid);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .benefit-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+  .benefit-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* PRICING */
+  .pricing {
+    background: var(--white);
+  }
+  .pricing-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+    cursor: pointer;
+  }
+  .toggle-label.active { color: var(--green-dark); }
+  .toggle-switch {
+    width: 44px; height: 24px;
+    background: var(--green-mid);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  .toggle-knob {
+    position: absolute;
+    top: 3px;
+    width: 18px; height: 18px;
+    background: var(--white);
+    border-radius: 50%;
+    transition: left 0.25s;
+    left: 3px;
+  }
+  .toggle-knob.right { left: 23px; }
+  .save-badge {
+    background: rgba(141,198,63,0.15);
+    color: var(--green-mid);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(141,198,63,0.3);
+  }
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .pricing-card {
+    border-radius: 20px;
+    padding: 32px 24px;
+    border: 1.5px solid rgba(26,77,46,0.1);
+    background: var(--cream);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-card:hover { transform: translateY(-4px); }
+  .pricing-card.featured {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    transform: scale(1.03);
+  }
+  .pricing-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+  .popular-tag {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--lime-bright);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-dark);
+    padding: 6px;
+    border-radius: 18px 18px 0 0;
+  }
+  .pricing-card.featured .popular-tag { border-radius: 18px 18px 0 0; }
+  .plan-name {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  .pricing-card.featured .plan-name { color: rgba(255,255,255,0.6); }
+  .plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pricing-card.featured .plan-price { color: var(--lime-bright); }
+  .plan-period {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+  }
+  .pricing-card.featured .plan-period { color: rgba(255,255,255,0.5); }
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .plan-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+  .pricing-card.featured .plan-feature { color: rgba(255,255,255,0.8); }
+  .check-icon {
+    width: 18px; height: 18px;
+    background: rgba(76,175,125,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .pricing-card.featured .check-icon { background: rgba(168,217,64,0.2); }
+  .check-icon svg {
+    width: 10px; height: 10px;
+    stroke: var(--green-mid);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .pricing-card.featured .check-icon svg { stroke: var(--lime-bright); }
+  .btn-plan {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1.5px solid var(--green-dark);
+    background: transparent;
+    color: var(--green-dark);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-plan:hover { background: var(--green-dark); color: var(--white); }
+  .btn-hot-plan { transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important; }
+  .btn-hot-plan:hover { background: #a33208 !important; color: white !important; border-color: #a33208 !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(194,64,10,0.35) !important; }
+  .pricing-card.featured .btn-plan {
+    background: var(--lime-bright);
+    color: var(--green-dark);
+    border-color: var(--lime-bright);
+  }
+  .pricing-card.featured .btn-plan:hover { background: var(--lime); }
+  .pricing-note {
+    margin-top: 36px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(26,77,46,0.07);
+  }
+
+  /* BENEFITS SPLIT */
+  .benefits-split {
+    background: var(--cream);
+    padding: 100px 60px;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .benefits-col {
+    border-radius: 24px;
+    padding: 40px 36px;
+  }
+  .benefits-col.rwa { background: var(--green-dark); }
+  .benefits-col.resident { background: var(--white); border: 1.5px solid rgba(26,77,46,0.1); }
+  .benefits-col-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .benefits-col.rwa .benefits-col-tag {
+    background: rgba(168,217,64,0.15);
+    color: var(--lime-bright);
+    border: 1px solid rgba(168,217,64,0.3);
+  }
+  .benefits-col.resident .benefits-col-tag {
+    background: var(--green-pale);
+    color: var(--green-mid);
+    border: 1px solid rgba(45,122,79,0.2);
+  }
+  .benefits-col-h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+  .benefits-col.rwa .benefits-col-h3 { color: var(--white); }
+  .benefits-col.resident .benefits-col-h3 { color: var(--text-dark); }
+  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .benefit-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .benefits-col.rwa .benefit-list-item { color: rgba(255,255,255,0.8); }
+  .benefits-col.resident .benefit-list-item { color: var(--text-mid); }
+  .benefit-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .benefits-col.rwa .benefit-dot { background: var(--lime-bright); }
+  .benefits-col.resident .benefit-dot { background: var(--green-mid); }
+  .benefit-list-item strong { font-weight: 600; }
+
+  /* INVESTORS */
+  .investors {
+    background: var(--white);
+    text-align: center;
+    padding: 70px 60px;
+  }
+  .investors p {
+    font-size: 13px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 36px;
+  }
+  .investor-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .investor-chip {
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(26,77,46,0.12);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-mid);
+    letter-spacing: 0.03em;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .investor-chip:hover { border-color: var(--green-mid); color: var(--green-dark); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--green-dark);
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.07);
+    top: -200px; left: -200px;
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(141,198,63,0.05);
+    bottom: -150px; right: -100px;
+  }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.25;
+  }
+  .cta-h2 span { color: var(--gold); }
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 44px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  .cta-phone {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--lime-bright);
+    font-family: 'Playfair Display', serif;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+  }
+  .cta-phone-icon {
+    width: 44px; height: 44px;
+    background: rgba(168,217,64,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(168,217,64,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0d1f14;
+    padding: 60px 60px 40px;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .footer-brand h3 span { color: var(--lime); }
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.65;
+    max-width: 260px;
+  }
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--lime-bright); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+  .dp-credit {
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+  }
+  .dp-credit span { color: var(--lime-bright); }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .float { animation: float 5s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo" style="display:flex;align-items:center;gap:10px;">
+    <img src="https://play-lh.googleusercontent.com/b50YdSvf0KbXes4wVlajtFXD-21vEiHAO0ZmmDURL9uJNGYpbLht8KUNpeJxMPjzCksZLYjN-A3DuOWWvV7suUs=w240-h480-rw" alt="ProWater Logo" style="height:42px;width:42px;object-fit:contain;border-radius:0;" onerror="this.style.display='none'">
+    <div class="nav-logo-text" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark);">Pro<span style="color:var(--lime);">Water</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#waste-section">The Problem</a></li>
+    <li><a href="#hero">Our Solution</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Plans</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>India's First — Piped RO Subscription</span>
+    </div>
+    <h1 class="hero-h1">
+      <em style="color:var(--gold);">ProWater</em><br>
+      Pure Water.<br>
+      <em>Zero Waste.</em><br>
+      Zero Hassle.
+    </h1>
+    <p class="hero-sub">
+      India's 1st centralized piped RO water system delivered directly to every apartment in your society — backed by DrinkPrime and IoT technology.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Get Free Installation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button onclick="openROModal()" class="btn-secondary" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-size:15px;font-family:'Poppins',sans-serif;font-weight:500;padding:0;transition:color 0.2s;">
+        See How It Works
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">300K+</div>
+        <div class="hero-stat-label">Households Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">11</div>
+        <div class="hero-stat-label">Cities</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10yr</div>
+        <div class="hero-stat-label">Industry Experience</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-deco-circle" style="width:300px;height:300px;top:-80px;right:-80px;"></div>
+    <div class="hero-deco-circle" style="width:180px;height:180px;bottom:40px;left:-50px;"></div>
+    <div class="hero-visual-card float">
+      <div class="hero-visual-top" style="padding:20px 16px 16px;">
+        <!-- Animated RO Plant Flow -->
+        <svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs>
+            <linearGradient id="roGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#a8d940"/>
+              <stop offset="100%" style="stop-color:#4a8c1c"/>
+            </linearGradient>
+          </defs>
+
+          <!-- STEP LABELS -->
+          <text x="36"  y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">INLET</text>
+          <text x="112" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">CENTRAL RO</text>
+          <text x="200" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">STORAGE</text>
+          <text x="268" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">HOME TAP</text>
+          <text x="332" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+
+          <!-- 1. INLET SOURCE -->
+          <circle cx="36" cy="42" r="14" fill="rgba(255,255,255,0.07)" stroke="rgba(168,217,64,0.45)" stroke-width="1.5"/>
+          <text x="36" y="39" text-anchor="middle" fill="#a8d940" font-size="11" font-family="Arial">&#x1F4A7;</text>
+          <text x="36" y="50" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif">SOURCE</text>
+          <circle cx="48" cy="26" r="7" fill="#a8d940"/>
+          <text x="48" y="30" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">1</text>
+
+          <!-- PIPE 1 to 2 -->
+          <line x1="50" y1="42" x2="94" y2="62" stroke="rgba(168,217,64,0.2)" stroke-width="5" stroke-linecap="round"/>
+          <circle r="3.5" fill="#a8d940" opacity="0.9"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+          <circle r="2.5" fill="#a8d940" opacity="0.7"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+          <circle r="2" fill="#a8d940" opacity="0.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="1.2s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+
+          <!-- 2. CENTRAL RO -->
+          <rect x="92" y="32" width="40" height="88" rx="7" fill="rgba(168,217,64,0.1)" stroke="rgba(168,217,64,0.5)" stroke-width="1.5"/>
+          <ellipse cx="112" cy="38" rx="16" ry="6" fill="#8dc63f" opacity="0.9"/>
+          <rect x="96" y="38" width="32" height="70" fill="url(#roGrad2)"/>
+          <ellipse cx="112" cy="108" rx="16" ry="6" fill="#3a7010"/>
+          <line x1="100" y1="54" x2="124" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <line x1="100" y1="65" x2="124" y2="65" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <line x1="100" y1="76" x2="124" y2="76" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <line x1="100" y1="87" x2="124" y2="87" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <text x="112" y="70" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold" font-family="Poppins,sans-serif">RO</text>
+          <text x="112" y="80" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="6.5" font-family="Poppins,sans-serif">FILTER</text>
+          <g transform="translate(112,100)">
+            <circle r="5" fill="none" stroke="rgba(168,217,64,0.5)" stroke-width="1.5"/>
+            <line x1="0" y1="-5" x2="0" y2="-2.5" stroke="#a8d940" stroke-width="1.8" stroke-linecap="round">
+              <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.8s" repeatCount="indefinite"/>
+            </line>
+          </g>
+          <circle cx="128" cy="23" r="7" fill="#a8d940"/>
+          <text x="128" y="27" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">2</text>
+
+          <!-- PIPE 2 to 3 pure water blue -->
+          <line x1="132" y1="62" x2="170" y2="62" stroke="rgba(96,208,255,0.2)" stroke-width="5" stroke-linecap="round"/>
+          <rect x="132" y="48" width="40" height="11" rx="5.5" fill="rgba(96,208,255,0.15)"/>
+          <text x="152" y="56" text-anchor="middle" fill="#60d0ff" font-size="6" font-family="Poppins,sans-serif" font-weight="600">PURE WATER</text>
+          <circle r="3.5" fill="#60d0ff" opacity="0.9"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+          <circle r="2.5" fill="#60d0ff" opacity="0.7"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.8s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+          <circle r="2" fill="#60d0ff" opacity="0.5"><animateMotion dur="1.5s" repeatCount="indefinite" begin="1.3s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+
+          <!-- 3. STORAGE TANK -->
+          <ellipse cx="200" cy="32" rx="25" ry="8" fill="#3a7010" opacity="0.8"/>
+          <rect x="175" y="32" width="50" height="80" fill="rgba(26,77,46,0.6)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+          <ellipse cx="200" cy="112" rx="25" ry="8" fill="#1a4d2e"/>
+          <rect x="176" y="72" width="48" height="40" fill="rgba(96,208,255,0.3)">
+            <animate attributeName="y" values="90;68;90" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="22;44;22" dur="4s" repeatCount="indefinite"/>
+          </rect>
+          <ellipse cx="200" cy="70" rx="20" ry="5" fill="rgba(96,208,255,0.45)">
+            <animate attributeName="ry" values="5;8;5" dur="2.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.45;0.75;0.45" dur="2.2s" repeatCount="indefinite"/>
+          </ellipse>
+          <text x="200" y="87" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold" font-family="Poppins,sans-serif">SS TANK</text>
+          <text x="200" y="98" text-anchor="middle" fill="rgba(96,208,255,0.9)" font-size="7.5" font-family="Poppins,sans-serif">1000L</text>
+          <circle cx="222" cy="22" r="7" fill="#a8d940"/>
+          <text x="222" y="26" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">3</text>
+
+          <!-- PIPE 3 to 4 flexi -->
+          <path d="M200,112 L200,132 L268,132 L268,158" stroke="rgba(96,208,255,0.2)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="204" y="122" width="52" height="11" rx="5.5" fill="rgba(96,208,255,0.12)"/>
+          <text x="230" y="130" text-anchor="middle" fill="rgba(96,208,255,0.75)" font-size="6" font-family="Poppins,sans-serif">16mm FLEXI PIPE</text>
+          <circle r="3.5" fill="#60d0ff" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0.5s"><mpath><path d="M200,112 L200,132 L268,132 L268,158"/></mpath></animateMotion></circle>
+          <circle r="2.5" fill="#60d0ff" opacity="0.7"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s"><mpath><path d="M200,112 L200,132 L268,132 L268,158"/></mpath></animateMotion></circle>
+
+          <!-- 4. HOME UV DISPENSER -->
+          <polygon points="268,158 246,158 246,196 290,196 290,158" fill="rgba(26,77,46,0.5)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+          <polygon points="240,160 268,138 296,160" fill="rgba(26,77,46,0.7)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+          <rect x="259" y="178" width="18" height="18" rx="2" fill="rgba(168,217,64,0.2)" stroke="rgba(168,217,64,0.5)" stroke-width="1"/>
+          <rect x="248" y="164" width="12" height="9" rx="2" fill="rgba(96,208,255,0.3)" stroke="rgba(96,208,255,0.6)" stroke-width="1"/>
+          <circle cx="268" cy="168" r="9" fill="rgba(96,208,255,0.1)">
+            <animate attributeName="r" values="9;14;9" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.1;0.22;0.1" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="268" y="172" text-anchor="middle" fill="#60d0ff" font-size="8" font-family="Arial">&#x2600;</text>
+          <text x="268" y="208" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">UV DISPENSER</text>
+          <circle cx="292" cy="140" r="7" fill="#a8d940"/>
+          <text x="292" y="144" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">4</text>
+          <!-- Water drops -->
+          <circle cx="272" cy="198" r="3" fill="#60d0ff" opacity="0">
+            <animate attributeName="cy" values="197;210" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeName="opacity" values="0.9;0" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+          </circle>
+          <circle cx="266" cy="198" r="2.5" fill="#60d0ff" opacity="0">
+            <animate attributeName="cy" values="197;208" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="opacity" values="0.7;0" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+          </circle>
+
+          <!-- WIRE UV to IoT dashed signal -->
+          <path d="M290,168 Q318,168 332,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+          <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
+          <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
+          <rect x="310" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
+          <text x="323" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
+
+          <!-- 5. IoT MONITOR -->
+          <g transform="translate(332,68)">
+            <rect x="-22" y="-18" width="44" height="32" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(168,217,64,0.6)" stroke-width="1.5"/>
+            <rect x="-17" y="-13" width="34" height="19" rx="3" fill="rgba(168,217,64,0.1)"/>
+            <polyline points="-13,-6 -8,-2 -3,-9 2,-4 7,-8 12,-3 17,-7" fill="none" stroke="#a8d940" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+            </polyline>
+            <text x="0" y="24" text-anchor="middle" fill="rgba(168,217,64,0.9)" font-size="11" font-family="Arial">
+              <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>&#x1F4F6;</text>
+            <text x="0" y="36" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">IoT MONITOR</text>
+            <circle cx="20" cy="-22" r="7" fill="#a8d940"/>
+            <text x="20" y="-18" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">5</text>
+          </g>
+
+          <!-- ZERO WASTE BADGE -->
+          <rect x="4" y="158" width="72" height="26" rx="7" fill="rgba(168,217,64,0.15)" stroke="rgba(168,217,64,0.4)" stroke-width="1"/>
+          <text x="40" y="168" text-anchor="middle" fill="#a8d940" font-size="6.5" font-family="Poppins,sans-serif" font-weight="700">&#x2713; ZERO WASTE</text>
+          <text x="40" y="178" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif">100% Recovery</text>
+
+        </svg>
+        <p style="color:rgba(255,255,255,0.7);font-size:11px;margin-top:8px;position:relative;z-index:1;font-family:'Poppins',sans-serif;">Centralized RO Plant — Rooftop Installation</p>
+      </div>
+      <ul class="hero-features-list">
+        <li class="hero-feature-item">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          Zero water wastage — 100% recovery
+        </li>
+        <li class="hero-feature-item">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          Zero setup cost for your society
+        </li>
+        <li class="hero-feature-item">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          Real-time IoT monitoring & app
+        </li>
+        <li class="hero-feature-item">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          Lifetime free AMC & maintenance
+        </li>
+      </ul>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <div class="trust-avatar">RW</div>
+          <div class="trust-avatar">MK</div>
+          <div class="trust-avatar">SP</div>
+          <div class="trust-avatar">+</div>
+        </div>
+        <div class="trust-text">
+          Trusted by <strong>3,000+ societies</strong> across India
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problems" id="problem">
+  <div class="section-tag">The Challenge</div>
+  <h2 class="section-h2">Your society is losing thousands of litres — and lakhs of rupees</h2>
+  <p class="section-lead">Conventional domestic RO purifiers create massive hidden costs for residents and RWAs alike.</p>
+
+  <div class="problems-grid fade-in">
+    <div class="problem-card danger">
+      <div class="problem-num">01</div>
+      <div class="problem-icon red">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="problem-title">Massive Water Wastage</div>
+      <div class="problem-desc">A typical 92-flat society wastes 2,760 litres every single day from domestic ROs — that's 10 lakh litres per year worth ₹2.5 Lakhs.</div>
+    </div>
+    <div class="problem-card warning">
+      <div class="problem-num">02</div>
+      <div class="problem-icon amber">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+      </div>
+      <div class="problem-title">Billing Nightmares</div>
+      <div class="problem-desc">RWAs have no way to bill residents based on actual water consumption. A flat monthly levy creates friction and disputes.</div>
+    </div>
+    <div class="problem-card danger">
+      <div class="problem-num">03</div>
+      <div class="problem-icon red">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M12 22V12M6 12l6-10 6 10"/><path d="M5 20h14"/></svg>
+      </div>
+      <div class="problem-title">STP Overload</div>
+      <div class="problem-desc">RO reject water overburdens the Sewage Treatment Plant, causing frequent breakdowns and expensive emergency maintenance.</div>
+    </div>
+    <div class="problem-card warning">
+      <div class="problem-num">04</div>
+      <div class="problem-icon amber">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </div>
+      <div class="problem-title">High Resident Spend</div>
+      <div class="problem-desc">Each resident spends ₹7,000+ per year juggling between water cans (microplastics risk) and RO purifiers (high maintenance, disturbance).</div>
+    </div>
+  </div>
+
+  <style>
+    #flats-selector option {
+      background: #ffffff;
+      color: #0d2818;
+      font-weight: 600;
+      padding: 10px 16px;
+    }
+    #flats-selector option:hover,
+    #flats-selector option:checked {
+      background: #e8f5ed;
+      color: #1a4d2e;
+    }
+  </style>
+
+  <div class="waste-highlight fade-in" id="waste-section">
+    <div class="waste-text">
+      <div style="margin-bottom:24px;">
+        <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--lime-bright);margin-bottom:10px;">Select number of flats</label>
+        <div style="position:relative;display:inline-block;">
+          <select id="flats-selector" onchange="updateWasteTable()" style="appearance:none;-webkit-appearance:none;background:rgba(255,255,255,0.12);border:1.5px solid rgba(168,217,64,0.5);color:white;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:11px 44px 11px 18px;border-radius:12px;cursor:pointer;outline:none;min-width:190px;transition:border-color 0.2s,background 0.2s;">
+            <option value="100" selected style="background:#fff;color:#0d2818;">100 Flats</option>
+            <option value="150" style="background:#fff;color:#0d2818;">150 Flats</option>
+            <option value="200" style="background:#fff;color:#0d2818;">200 Flats</option>
+            <option value="250" style="background:#fff;color:#0d2818;">250 Flats</option>
+            <option value="300" style="background:#fff;color:#0d2818;">300 Flats</option>
+          </select>
+          <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--lime-bright);font-size:13px;">▾</span>
+        </div>
+      </div>
+      <h3 id="waste-headline" style="color:var(--white);font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1.25;">
+        <span id="wh-flats">100</span> flats waste<br>
+        <span id="wh-litres" style="color:var(--gold);">~10.95 Lakh litres</span><br>
+        of RO water per year
+      </h3>
+      <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:16px;">
+        That's equivalent to <strong id="waste-cost" style="color:var(--gold);">₹2.73 Lakhs</strong> down the drain — literally. ProWater captures and reuses every drop of RO reject water.
+      </p>
+    </div>
+    <div class="waste-table">
+      <div class="waste-table-row header">
+        <span>Water Wastage Analysis</span>
+        <span>Per Flat</span>
+        <span id="table-header-col">100 Flats</span>
+      </div>
+      <div class="waste-table-row">
+        <span>Avg consumption/day (L)</span>
+        <span>10</span>
+        <span id="td-consumption">1,000</span>
+      </div>
+      <div class="waste-table-row alert">
+        <span>Avg wastage/day (L)</span>
+        <span>30</span>
+        <span id="td-wastage-day">3,000</span>
+      </div>
+      <div class="waste-table-row">
+        <span>Avg wastage/year (L)</span>
+        <span>10.95K</span>
+        <span id="td-wastage-year">10.95 Lakh</span>
+      </div>
+      <div class="waste-table-row">
+        <span>Cost per litre (₹)</span>
+        <span>0.25</span>
+        <span>0.25</span>
+      </div>
+      <div class="waste-table-row alert">
+        <span>Cost of waste/year (₹)</span>
+        <span>₹2,738</span>
+        <span id="td-cost-year">₹2.73 Lakhs</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const wasteData = {
+      100: { consumption: '1,000', wastageDay: '3,000', wastageYear: '10.95 Lakh', costYear: '₹2.73 Lakhs', litres: '~10.95 Lakh litres', cost: '₹2.73 Lakhs' },
+      150: { consumption: '1,500', wastageDay: '4,500', wastageYear: '16.42 Lakh', costYear: '₹4.10 Lakhs', litres: '~16.42 Lakh litres', cost: '₹4.10 Lakhs' },
+      200: { consumption: '2,000', wastageDay: '6,000', wastageYear: '21.90 Lakh', costYear: '₹5.47 Lakhs', litres: '~21.90 Lakh litres', cost: '₹5.47 Lakhs' },
+      250: { consumption: '2,500', wastageDay: '7,500', wastageYear: '27.37 Lakh', costYear: '₹6.80 Lakhs', litres: '~27.37 Lakh litres', cost: '₹6.80 Lakhs' },
+      300: { consumption: '3,000', wastageDay: '9,000', wastageYear: '32.85 Lakh', costYear: '₹8.21 Lakhs', litres: '~32.85 Lakh litres', cost: '₹8.21 Lakhs' }
+    };
+
+    function updateWasteTable() {
+      const flats = parseInt(document.getElementById('flats-selector').value);
+      const d = wasteData[flats];
+
+      document.getElementById('wh-flats').textContent = flats;
+      document.getElementById('wh-litres').textContent = d.litres;
+      document.getElementById('waste-cost').textContent = d.cost;
+      document.getElementById('table-header-col').textContent = flats + ' Flats';
+      document.getElementById('td-consumption').textContent = d.consumption;
+      document.getElementById('td-wastage-day').textContent = d.wastageDay;
+      document.getElementById('td-wastage-year').textContent = d.wastageYear;
+      document.getElementById('td-cost-year').textContent = d.costYear;
+
+      const rows = document.querySelectorAll('.waste-table-row:not(.header)');
+      rows.forEach(r => { r.style.transition = 'none'; r.style.opacity = '0'; r.style.transform = 'translateX(6px)'; });
+      setTimeout(() => {
+        rows.forEach(r => { r.style.transition = 'opacity 0.35s ease, transform 0.35s ease'; r.style.opacity = '1'; r.style.transform = 'none'; });
+      }, 40);
+    }
+
+    updateWasteTable();
+  </script>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how">
+  <div class="section-tag">The Process</div>
+  <h2 class="section-h2" style="max-width:500px;">From rooftop to your kitchen tap — in 7 steps</h2>
+  <p class="section-lead">Our end-to-end installation is minimally invasive — think gas pipeline, not plumbing overhaul.</p>
+
+  <div class="steps-container fade-in">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-title">Water Quality Test</div>
+      <div class="step-desc">We analyse your inlet water source to design a custom filtration system specific to your area's water profile.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <div class="step-title">Custom System Design</div>
+      <div class="step-desc">Our engineers design a centralized RO plant sized perfectly for your apartment community's daily needs.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <div class="step-title">Rooftop Installation</div>
+      <div class="step-desc">Two Central RO plants + 500L anti-microbial storage tanks installed on the terrace. Zero disruption to residents.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">4</div>
+      <div class="step-title">Waste Water Recovery</div>
+      <div class="step-desc">Plumbing lines redirect softened RO reject water back to the water sump — saving up to 10,800 L/year per household.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">5</div>
+      <div class="step-title">Flexi Pipe Routing</div>
+      <div class="step-desc">A slim 16mm pipe runs through existing ducts to every home — like your gas line, no complex plumbing changes needed.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">6</div>
+      <div class="step-title">In-Home UV Dispenser</div>
+      <div class="step-desc">A Wi-Fi enabled UV point-of-use dispenser is installed in your kitchen. Choose normal or hot water at a tap.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">7</div>
+      <div class="step-title">Subscribe & Enjoy</div>
+      <div class="step-desc">Recharge monthly or annually via the DrinkPrime app. Live TDS tracking. Unlimited pure water. Done.</div>
+    </div>
+    <div class="step-card" style="background:rgba(168,217,64,0.1);border-color:rgba(168,217,64,0.2);">
+      <div style="margin-bottom:18px;">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect width="44" height="44" rx="14" fill="rgba(168,217,64,0.15)"/>
+          <circle cx="22" cy="20" r="7" stroke="#a8d940" stroke-width="1.8"/>
+          <path d="M22 13v-3M22 30v-3M15 20H12M34 20H31" stroke="#a8d940" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="step-title" style="color:var(--lime-bright);">IoT Dashboard</div>
+      <div class="step-desc">RWA and residents get real-time water quality + consumption analytics via web dashboard and mobile app.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="solution-inner">
+    <div class="solution-visual fade-in">
+      <div class="solution-visual-sub">ProWater System</div>
+      <div class="solution-visual-title">How water reaches<br>your kitchen</div>
+      <div class="system-diagram" style="margin-top: 32px;">
+        <div class="diagram-node">
+          <div class="diagram-node-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><path d="M3 17l6-10 4 6 3-4 5 8H3z"/></svg>
+          </div>
+          <div class="diagram-node-text">
+            <div class="diagram-node-label">Source</div>
+            <div class="diagram-node-title">Inlet Water Supply (BWSSB / Borewell)</div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-node">
+          <div class="diagram-node-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l4-4 4 4M12 8v8"/></svg>
+          </div>
+          <div class="diagram-node-text">
+            <div class="diagram-node-label">Rooftop</div>
+            <div class="diagram-node-title">Centralized RO Plant (500L/hr) + SS Tank</div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-node">
+          <div class="diagram-node-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><path d="M12 2L12 22M5 8h14M5 16h14"/></svg>
+          </div>
+          <div class="diagram-node-text">
+            <div class="diagram-node-label">Distribution</div>
+            <div class="diagram-node-title">16mm Flexi Pipe through Building Ducts</div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-node" style="border-color:rgba(168,217,64,0.3);background:rgba(168,217,64,0.1);">
+          <div class="diagram-node-icon" style="background:rgba(168,217,64,0.25);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><path d="M8 6h8M8 12h8M8 18h8M3 6l1 1-1 1M3 12l1 1-1 1M3 18l1 1-1 1"/></svg>
+          </div>
+          <div class="diagram-node-text">
+            <div class="diagram-node-label" style="color:#a8d940;">Your Home</div>
+            <div class="diagram-node-title" style="color:white;">Wi-Fi UV Dispenser — Normal + Hot Water</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-tag">Why ProWater</div>
+      <h2 class="section-h2">Everything your society needed. Nothing you didn't.</h2>
+      <p class="section-lead">A complete ecosystem — central plant, smart dispenser, IoT dashboard, and proactive service.</p>
+
+      <div class="solution-benefits">
+        <div class="benefit-item fade-in">
+          <div class="benefit-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12M6 12l6-10 6 10"/><path d="M5 20h14"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Zero water wastage</div>
+            <div class="benefit-desc">Wastewater from the central RO is redirected back into the softener, saving up to 10,800 litres per household per year.</div>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Zero setup cost</div>
+            <div class="benefit-desc">DrinkPrime bears 100% of the infrastructure installation cost. Your society pays nothing upfront, ever.</div>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">IoT-powered app control</div>
+            <div class="benefit-desc">Monitor live TDS levels, water quality, and consumption from your DrinkPrime app — all in real time.</div>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Lifetime free AMC</div>
+            <div class="benefit-desc">Dedicated on-site technician, same-day service SLA, free spare replacements. Maintenance is our problem, not yours.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-tag">Subscription Plans</div>
+  <h2 class="section-h2 poppins-h2">Unlimited pure water for less than ₹10/day</h2>
+  <p class="section-lead" style="font-family:'Poppins',sans-serif;font-weight:500;color:rgb(78,75,102);font-size:16px;line-height:24px;">Residents subscribe directly. Flexible monthly or annual plans. Cancel anytime. No hidden charges.</p>
+
+  <!-- Controls Row -->
+  <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-bottom:48px;">
+    <!-- Billing toggle -->
+    <div class="pricing-toggle" style="margin-bottom:0;">
+      <span class="toggle-label active" id="toggle-monthly" style="font-family:'Poppins',sans-serif;font-weight:500;">Monthly</span>
+      <button class="toggle-switch" id="billing-toggle" onclick="toggleBilling()">
+        <div class="toggle-knob" id="toggle-knob"></div>
+      </button>
+      <span class="toggle-label" id="toggle-annual" style="font-family:'Poppins',sans-serif;font-weight:500;">Annual</span>
+      <span class="save-badge" id="save-badge" style="opacity:0;transition:opacity 0.3s;font-family:'Poppins',sans-serif;">Save more on annual</span>
+    </div>
+  </div>
+
+
+  <!-- 3 Device-Type Cards -->
+  <div id="pricing-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;padding-top:24px;align-items:stretch;">
+
+    <!-- Card 1: Own Device -->
+    <div id="card-1" class="pricing-card" style="border-radius:20px;padding:0;overflow:hidden;border:1.5px solid rgba(26,77,46,0.12);background:var(--white);transition:opacity 0.4s ease,transform 0.4s ease;display:flex;flex-direction:column;">
+      <div style="background:var(--green-dark);padding:14px 24px;text-align:center;position:relative;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:white;">Own Device</div>
+      </div>
+      <div style="padding:28px 24px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;color:rgb(78,75,102);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">RO + UV</div>
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:44px;line-height:1;color:rgb(12,58,64);margin-bottom:4px;"><span id="p1-price">₹299</span></div>
+        <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);margin-bottom:18px;" id="p1-period">/month · Own device</div>
+        <div id="p1-amount" style="margin-bottom:22px;padding:12px 16px;background:var(--green-pale);border-radius:12px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);">
+          Amount to pay: <strong style="color:var(--green-dark);font-weight:700;">₹2,299</strong>
+          <span style="display:block;font-size:11px;color:var(--text-light);margin-top:3px;">incl. ₹2,000 refundable deposit</span>
+        </div>
+        <ul class="plan-features" style="margin-bottom:24px;flex:1;">
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Central RO purification</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>UV point-of-use dispenser</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Unlimited water quantity</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>App + live TDS tracking</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Lifetime free AMC</li>
+        </ul>
+        <button class="btn-plan" onclick="selectCard(1)" style="font-family:'Poppins',sans-serif;font-weight:600;margin-top:auto;">Get Started</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Normal Device -->
+    <div id="card-2" class="pricing-card" style="border-radius:20px;padding:0;overflow:hidden;border:1.5px solid rgba(26,77,46,0.12);background:var(--white);transition:opacity 0.4s ease,transform 0.4s ease;display:flex;flex-direction:column;">
+      <div style="background:var(--green-mid);padding:14px 24px;text-align:center;position:relative;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:white;">Normal Device</div>
+        <div id="p2-discount" style="display:none;position:absolute;top:10px;right:14px;background:#a8d940;color:#0d2818;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">10% OFF</div>
+      </div>
+      <div style="padding:28px 24px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;color:rgb(78,75,102);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">RO + UV + Mineral / Copper / Alkaline</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;">
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:44px;line-height:1;color:rgb(12,58,64);"><span id="p2-price">₹399</span></div>
+          <div id="p2-original" style="display:none;font-family:'Poppins',sans-serif;font-size:18px;font-weight:500;color:rgb(180,170,170);text-decoration:line-through;">₹399</div>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);margin-bottom:18px;" id="p2-period">/month · Normal device</div>
+        <div id="p2-amount" style="margin-bottom:22px;padding:12px 16px;background:var(--green-pale);border-radius:12px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);">
+          Amount to pay: <strong style="color:var(--green-dark);font-weight:700;">₹2,399</strong>
+          <span style="display:block;font-size:11px;color:var(--text-light);margin-top:3px;">incl. ₹2,000 refundable deposit</span>
+        </div>
+        <ul class="plan-features" style="margin-bottom:24px;flex:1;">
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Everything in RO + UV</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mineral / Copper / Alkaline infusion</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Upgrade mineral type anytime</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Optimal TDS balance</li>
+          <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);"><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Lifetime free AMC</li>
+        </ul>
+        <button class="btn-plan" onclick="selectCard(2)" style="font-family:'Poppins',sans-serif;font-weight:600;margin-top:auto;">Get Started</button>
+      </div>
+    </div>
+
+    <!-- Card 3: Hot & Ambient Device — BEST SELLER -->
+    <div id="card-3" class="pricing-card" style="border-radius:20px;padding:0;overflow:visible;border:none;background:transparent;box-shadow:none;transition:opacity 0.4s ease,transform 0.4s ease;position:relative;margin-top:-16px;">
+
+      <!-- Best Seller ribbon banner above card -->
+      <div style="position:absolute;top:-18px;left:0;right:0;display:flex;justify-content:center;z-index:10;">
+        <div style="background:linear-gradient(90deg,#f5c518,#ffdb4d,#f5c518);padding:6px 28px;border-radius:20px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(245,197,24,0.45);">
+          <!-- Trophy SVG -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#92600a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4a2 2 0 0 1-2-2V5h4"/><path d="M18 9h2a2 2 0 0 0 2-2V5h-4"/><path d="M12 17v4"/><path d="M8 21h8"/>
+            <path d="M18 5H6v4a6 6 0 0 0 12 0V5z"/>
+          </svg>
+          <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:11px;color:#7a4f00;text-transform:uppercase;letter-spacing:0.1em;">⭐ Best Seller</span>
+          <!-- Sparkle dots -->
+          <span style="font-size:10px;">✦</span>
+        </div>
+      </div>
+
+      <!-- Main card body -->
+      <div style="border-radius:20px;overflow:hidden;border:2.5px solid #f5c518;background:var(--white);box-shadow:0 16px 48px rgba(194,64,10,0.18),0 0 0 4px rgba(245,197,24,0.15);display:flex;flex-direction:column;height:100%;">
+
+        <!-- Card header with flame graphic -->
+        <div style="background:linear-gradient(135deg,#b83200,#c2400a,#e05a1a,#ea6b1a);padding:20px 24px 18px;text-align:center;position:relative;overflow:hidden;">
+
+          <!-- Decorative heat circles -->
+          <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.07);"></div>
+          <div style="position:absolute;bottom:-30px;left:-10px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
+
+          <!-- Flame SVG graphic -->
+          <div style="display:flex;justify-content:center;gap:6px;margin-bottom:8px;">
+            <svg width="18" height="22" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;">
+              <path d="M12 2C12 2 14 6 14 10C14 12 12.5 13 12 13C11.5 13 10 12 10 10C10 6 12 2 12 2Z" fill="#ffdb4d"/>
+              <path d="M6 8C6 8 8 13 8 17C8 21 10 24 12 24C14 24 16 21 16 17C16 13 18 8 18 8C18 8 16 11 14 11C13 11 12.5 10 12 9C11.5 10 11 11 10 11C8 11 6 8 6 8Z" fill="#ff8c42"/>
+              <path d="M9 16C9 16 10 18 10 20C10 22 11 24 12 24C13 24 14 22 14 20C14 18 15 16 15 16C15 16 14 17.5 13 17.5C12.5 17.5 12 17 12 16.5C12 17 11.5 17.5 11 17.5C10 17.5 9 16 9 16Z" fill="#ffdb4d"/>
+            </svg>
+            <svg width="14" height="18" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.7;margin-top:4px;">
+              <path d="M12 4C12 4 13.5 7 13.5 10C13.5 11.5 12.8 12 12 12C11.2 12 10.5 11.5 10.5 10C10.5 7 12 4 12 4Z" fill="#ffdb4d"/>
+              <path d="M8 9C8 9 9.5 13 9.5 16C9.5 19.5 10.5 22 12 22C13.5 22 14.5 19.5 14.5 16C14.5 13 16 9 16 9C16 9 14.5 11.5 13 11.5C12.5 11.5 12 11 12 10.5C12 11 11.5 11.5 11 11.5C9.5 11.5 8 9 8 9Z" fill="#ff8c42"/>
+            </svg>
+            <svg width="18" height="22" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;">
+              <path d="M12 2C12 2 14 6 14 10C14 12 12.5 13 12 13C11.5 13 10 12 10 10C10 6 12 2 12 2Z" fill="#ffdb4d"/>
+              <path d="M6 8C6 8 8 13 8 17C8 21 10 24 12 24C14 24 16 21 16 17C16 13 18 8 18 8C18 8 16 11 14 11C13 11 12.5 10 12 9C11.5 10 11 11 10 11C8 11 6 8 6 8Z" fill="#ff8c42"/>
+              <path d="M9 16C9 16 10 18 10 20C10 22 11 24 12 24C13 24 14 22 14 20C14 18 15 16 15 16C15 16 14 17.5 13 17.5C12.5 17.5 12 17 12 16.5C12 17 11.5 17.5 11 17.5C10 17.5 9 16 9 16Z" fill="#ffdb4d"/>
+            </svg>
+          </div>
+
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:white;position:relative;z-index:1;">Hot &amp; Ambient Device</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;position:relative;z-index:1;">Most chosen by residents ✦</div>
+
+          <!-- 10% OFF badge -->
+          <div id="p3-discount" style="display:none;position:absolute;top:12px;right:14px;background:#fff0e6;color:#c2400a;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;z-index:2;">10% OFF</div>
+        </div>
+
+        <!-- Card body -->
+        <div style="padding:28px 24px;flex:1;display:flex;flex-direction:column;">
+          <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;color:rgb(78,75,102);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">RO + UV + Mineral / Copper / Alkaline</div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px;">
+            <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:44px;line-height:1;color:#c2400a;"><span id="p3-price">₹499</span></div>
+            <div id="p3-original" style="display:none;font-family:'Poppins',sans-serif;font-size:18px;font-weight:500;color:rgb(180,170,170);text-decoration:line-through;">₹499</div>
+          </div>
+          <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);margin-bottom:18px;" id="p3-period">/month · Hot &amp; Ambient device</div>
+
+          <div id="p3-amount" style="margin-bottom:22px;padding:12px 16px;background:linear-gradient(135deg,#fff4ee,#fff8f4);border-radius:12px;border:1px solid rgba(194,64,10,0.15);font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);">
+            Amount to pay: <strong style="color:#c2400a;font-weight:700;">₹4,499</strong>
+            <span style="display:block;font-size:11px;color:#b07060;margin-top:3px;">incl. ₹4,000 refundable deposit</span>
+          </div>
+
+          <!-- Feature list with orange check icons -->
+          <ul class="plan-features" style="margin-bottom:24px;">
+            <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);">
+              <span class="check-icon" style="background:rgba(194,64,10,0.1);"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="#c2400a"/></svg></span>Everything in Normal Device
+            </li>
+            <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:rgb(40,30,20);">
+              <span class="check-icon" style="background:rgba(194,64,10,0.1);"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="#c2400a"/></svg></span>🔥 Instant hot water on tap
+            </li>
+            <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);">
+              <span class="check-icon" style="background:rgba(194,64,10,0.1);"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="#c2400a"/></svg></span>Normal + hot water dispenser
+            </li>
+            <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);">
+              <span class="check-icon" style="background:rgba(194,64,10,0.1);"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="#c2400a"/></svg></span>Mineral / Copper / Alkaline infusion
+            </li>
+            <li class="plan-feature" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:14px;color:rgb(78,75,102);">
+              <span class="check-icon" style="background:rgba(194,64,10,0.1);"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="#c2400a"/></svg></span>Lifetime free AMC
+            </li>
+          </ul>
+
+          <!-- Social proof bar -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding:10px 14px;background:linear-gradient(90deg,rgba(194,64,10,0.06),rgba(245,197,24,0.08));border-radius:10px;border:1px solid rgba(194,64,10,0.1);">
+            <div style="display:flex;">
+              <div style="width:22px;height:22px;border-radius:50%;background:#e05a1a;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;">R</div>
+              <div style="width:22px;height:22px;border-radius:50%;background:#c2400a;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;margin-left:-6px;">K</div>
+              <div style="width:22px;height:22px;border-radius:50%;background:#ea6b1a;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;margin-left:-6px;">M</div>
+            </div>
+            <span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;color:rgb(78,75,102);">Chosen by <strong style="color:#c2400a;">2,400+ residents</strong> this month</span>
+          </div>
+
+          <button class="btn-plan btn-hot-plan" onclick="selectCard(3)" style="font-family:'Poppins',sans-serif;font-weight:700;background:linear-gradient(135deg,#c2400a,#ea6b1a);color:white;border-color:transparent;font-size:15px;letter-spacing:0.02em;box-shadow:0 4px 16px rgba(194,64,10,0.35);">Get Started →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Cross Button (hidden until a card is selected) -->
+    <button id="reset-btn" onclick="resetCards()" style="display:none;position:absolute;top:-50px;right:0;width:40px;height:40px;border-radius:50%;background:var(--green-dark);color:white;border:none;cursor:pointer;font-size:20px;line-height:1;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,77,46,0.25);transition:background 0.2s,transform 0.15s;" onmouseover="this.style.background='#e63946';this.style.transform='scale(1.08)'" onmouseout="this.style.background='var(--green-dark)';this.style.transform='scale(1)'">✕</button>
+
+  </div>
+
+  <div class="pricing-note" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:13px;">
+    Security deposit is fully refundable · Upgrade mineral type anytime via the app · Normal device deposit: ₹2,000 · Hot &amp; Ambient device deposit: ₹4,000
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-split" id="benefits">
+  <div class="section-tag">Win-Win</div>
+  <h2 class="section-h2">Benefits for everyone in your society</h2>
+  <p class="section-lead">ProWater is designed to make both the RWA's job easier and residents' lives better.</p>
+
+  <div class="benefits-grid fade-in">
+    <div class="benefits-col rwa">
+      <span class="benefits-col-tag">For RWAs</span>
+      <h3 class="benefits-col-h3">Less admin.<br>More savings.</h3>
+      <ul class="benefit-list">
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Zero setup cost</strong> — we bear 100% of infrastructure installation</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Save <strong>10 lakh litres/year</strong> → ₹2.5 lakh cost saving on 100% adoption</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Dedicated technician</strong> assigned to your society with same-day response</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Society-level <strong>water dashboard</strong> — track consumption, quality, and savings</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Per-apartment billing</strong> done automatically — no monthly collection headaches</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Reduces <strong>STP load</strong> significantly — fewer maintenance emergencies</span>
+        </li>
+      </ul>
+    </div>
+    <div class="benefits-col resident">
+      <span class="benefits-col-tag">For Residents</span>
+      <h3 class="benefits-col-h3">Pure water.<br>No compromise.</h3>
+      <ul class="benefit-list">
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Live TDS tracking</strong> — know your water purity at all times from the app</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Lifetime free AMC</strong> — no service charges, no maintenance bills, ever</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Free <strong>RO dispenser</strong> (normal + hot water) installed in your kitchen</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Zero initial investment</strong> — just pay a small refundable security deposit</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Absolute <strong>zero water wastage</strong> — every litre is used, nothing goes to drain</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Upgrade minerals anytime</strong> — switch to Mineral / Copper / Alkaline via app</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-tag" style="color:var(--lime-bright);justify-content:center;">
+      <span style="display:inline-block;width:20px;height:2px;background:var(--lime);"></span>
+      Get Started Today
+    </div>
+    <h2 class="cta-h2">Your society deserves<br>better <span>water.</span></h2>
+    <p class="cta-sub">Join 300,000+ households across 11 cities who already enjoy clean, safe, affordable RO water delivered piped to their taps.</p>
+    <!-- CTA action buttons -->
+    <div class="cta-actions">
+      <a href="tel:7019758560" class="btn-primary" style="font-size:16px;padding:18px 40px;">
+        Book a Free Site Visit
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Want to Speak section -->
+    <div style="margin-top:40px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;">
+
+      <!-- Call us -->
+      <div style="text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45);margin-bottom:8px;">Want to Speak?</div>
+        <a href="tel:7019758560" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">
+          <div style="width:40px;height:40px;background:rgba(168,217,64,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(168,217,64,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6 6l.91-.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16.18z"/></svg>
+          </div>
+          <span style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--lime-bright);">Call us: 70197 58560</span>
+        </a>
+      </div>
+
+      <!-- Divider -->
+      <div style="width:1px;height:48px;background:rgba(255,255,255,0.15);flex-shrink:0;"></div>
+
+      <!-- Leave a note -->
+      <div style="text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45);margin-bottom:8px;">Prefer to write?</div>
+        <button onclick="openLeadModal()" style="display:inline-flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:0;">
+          <div style="width:40px;height:40px;background:rgba(168,217,64,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(168,217,64,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <span style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--lime-bright);text-decoration:underline;text-underline-offset:4px;">Leave us a note</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Pro<span>Water</span></h3>
+      <p>India's 1st piped RO water on subscription. A DrinkPrime initiative bringing clean, safe, and affordable drinking water to every home.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#solution">How It Works</a></li>
+        <li><a href="#pricing">Plans & Pricing</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#contact">Get a Demo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>For</h4>
+      <ul>
+        <li><a href="#benefits">RWAs & Societies</a></li>
+        <li><a href="#benefits">Residents</a></li>
+        <li><a href="#">Builders & Developers</a></li>
+        <li><a href="#">Commercial Spaces</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About DrinkPrime</a></li>
+        <li><a href="#">Press & Awards</a></li>
+        <li><a href="#">Investors</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ProWater — A DrinkPrime Initiative. All rights reserved.</span>
+    <span class="dp-credit">Built on <span>10 years</span> of water tech expertise</span>
+  </div>
+</footer>
+
+<script>
+  let isAnnual = false;
+
+  const pricingData = {
+    monthly: {
+      p1: { price: '₹299', period: '/month · Own device', amount: '₹2,299', deposit: '₹2,000', isHot: false },
+      p2: { price: '₹399', period: '/month · Normal device', amount: '₹2,399', deposit: '₹2,000', isHot: false },
+      p3: { price: '₹499', period: '/month · Hot & Ambient device', amount: '₹4,499', deposit: '₹4,000', isHot: true },
+    },
+    annual: {
+      p1: { price: '₹299', period: '/month · Annual plan · Own device', amount: '₹5,588', deposit: '₹2,000', isHot: false },
+      p2: { price: '₹359', period: '/month · Annual plan · Normal device', amount: '₹5,877', deposit: '₹2,000', isHot: false },
+      p3: { price: '₹449', period: '/month · Annual plan · Hot & Ambient device', amount: '₹8,849', deposit: '₹4,000', isHot: true },
+    }
+  };
+
+  function renderPricing() {
+    const billing = isAnnual ? 'annual' : 'monthly';
+    const data = pricingData[billing];
+
+    [1, 2, 3].forEach(i => {
+      const d = data['p' + i];
+      document.getElementById('p' + i + '-price').textContent = d.price;
+      document.getElementById('p' + i + '-period').textContent = d.period;
+      const amountEl = document.getElementById('p' + i + '-amount');
+      const isHot = d.isHot;
+      amountEl.innerHTML = `Amount to pay: <strong style="color:${isHot ? '#c2400a' : 'var(--green-dark)'};font-weight:700;">${d.amount}</strong>
+        <span style="display:block;font-size:11px;color:${isHot ? '#b07060' : 'var(--text-light)'};margin-top:3px;">incl. ${d.deposit} refundable deposit</span>`;
+    });
+
+    document.getElementById('save-badge').style.opacity = isAnnual ? '1' : '0';
+
+    const discountCards = [2, 3];
+    discountCards.forEach(i => {
+      const badge = document.getElementById('p' + i + '-discount');
+      const original = document.getElementById('p' + i + '-original');
+      if (isAnnual) {
+        badge.style.display = 'block';
+        original.style.display = 'block';
+      } else {
+        badge.style.display = 'none';
+        original.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleBilling() {
+    isAnnual = !isAnnual;
+    const knob = document.getElementById('toggle-knob');
+    const annualLabel = document.getElementById('toggle-annual');
+    const monthlyLabel = document.getElementById('toggle-monthly');
+    knob.className = isAnnual ? 'toggle-knob right' : 'toggle-knob';
+    annualLabel.className = isAnnual ? 'toggle-label active' : 'toggle-label';
+    monthlyLabel.className = isAnnual ? 'toggle-label' : 'toggle-label active';
+    renderPricing();
+  }
+
+  function selectCard(selected) {
+    [1, 2, 3].forEach(i => {
+      const card = document.getElementById('card-' + i);
+      if (i !== selected) {
+        card.style.opacity = '0.2';
+        card.style.transform = 'scale(0.97)';
+        card.style.pointerEvents = 'none';
+      } else {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1.02)';
+        card.style.boxShadow = '0 12px 40px rgba(26,77,46,0.18)';
+      }
+    });
+    const resetBtn = document.getElementById('reset-btn');
+    resetBtn.style.display = 'flex';
+  }
+
+  function resetCards() {
+    [1, 2, 3].forEach(i => {
+      const card = document.getElementById('card-' + i);
+      card.style.opacity = '1';
+      card.style.transform = 'scale(1)';
+      card.style.pointerEvents = 'auto';
+      card.style.boxShadow = i === 3 ? '0 8px 32px rgba(194,64,10,0.13)' : 'none';
+    });
+    document.getElementById('reset-btn').style.display = 'none';
+  }
+
+  renderPricing();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(26,77,46,0.1)' : 'none';
+  });
+</script>
+
+<!-- RO ANIMATION MODAL -->
+<div id="ro-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;">
+  <!-- Backdrop -->
+  <div onclick="closeROModal()" style="position:absolute;inset:0;background:rgba(10,20,14,0.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"></div>
+
+  <!-- Modal card -->
+  <div style="position:relative;z-index:1;background:#1a4d2e;border-radius:24px;padding:32px 28px 24px;max-width:780px;width:92%;box-shadow:0 32px 80px rgba(0,0,0,0.5);border:1.5px solid rgba(168,217,64,0.25);">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--lime-bright);margin-bottom:4px;">How It Works</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:white;margin:0;">Centralized RO Plant — Rooftop Installation</h3>
+      </div>
+      <button onclick="closeROModal()" style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='rgba(230,57,70,0.3)';this.style.borderColor='rgba(230,57,70,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.15)'">✕</button>
+    </div>
+
+    <!-- Enlarged SVG Animation -->
+    <div style="background:rgba(10,28,18,0.6);border-radius:16px;padding:20px 16px 14px;border:1px solid rgba(168,217,64,0.15);">
+      <svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+        <defs>
+          <linearGradient id="roGradModal" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#a8d940"/>
+            <stop offset="100%" style="stop-color:#4a8c1c"/>
+          </linearGradient>
+        </defs>
+
+        <!-- STEP LABELS -->
+        <text x="36"  y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">INLET</text>
+        <text x="112" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">CENTRAL RO</text>
+        <text x="200" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">STORAGE</text>
+        <text x="268" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">HOME TAP</text>
+        <text x="332" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+
+        <!-- 1. INLET SOURCE -->
+        <circle cx="36" cy="42" r="14" fill="rgba(255,255,255,0.07)" stroke="rgba(168,217,64,0.45)" stroke-width="1.5"/>
+        <text x="36" y="39" text-anchor="middle" fill="#a8d940" font-size="11" font-family="Arial">&#x1F4A7;</text>
+        <text x="36" y="50" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif">SOURCE</text>
+        <circle cx="48" cy="26" r="7" fill="#a8d940"/><text x="48" y="30" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">1</text>
+
+        <!-- PIPE 1→2 -->
+        <line x1="50" y1="42" x2="94" y2="62" stroke="rgba(168,217,64,0.2)" stroke-width="5" stroke-linecap="round"/>
+        <circle r="3.5" fill="#a8d940" opacity="0.9"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+        <circle r="2.5" fill="#a8d940" opacity="0.7"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+        <circle r="2" fill="#a8d940" opacity="0.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="1.2s"><mpath><path d="M50,42 L94,62"/></mpath></animateMotion></circle>
+
+        <!-- 2. CENTRAL RO -->
+        <rect x="92" y="32" width="40" height="88" rx="7" fill="rgba(168,217,64,0.1)" stroke="rgba(168,217,64,0.5)" stroke-width="1.5"/>
+        <ellipse cx="112" cy="38" rx="16" ry="6" fill="#8dc63f" opacity="0.9"/>
+        <rect x="96" y="38" width="32" height="70" fill="url(#roGradModal)"/>
+        <ellipse cx="112" cy="108" rx="16" ry="6" fill="#3a7010"/>
+        <line x1="100" y1="54" x2="124" y2="54" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <line x1="100" y1="65" x2="124" y2="65" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <line x1="100" y1="76" x2="124" y2="76" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <line x1="100" y1="87" x2="124" y2="87" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <text x="112" y="70" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold" font-family="Poppins,sans-serif">RO</text>
+        <text x="112" y="80" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="6.5" font-family="Poppins,sans-serif">FILTER</text>
+        <g transform="translate(112,100)">
+          <circle r="5" fill="none" stroke="rgba(168,217,64,0.5)" stroke-width="1.5"/>
+          <line x1="0" y1="-5" x2="0" y2="-2.5" stroke="#a8d940" stroke-width="1.8" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.8s" repeatCount="indefinite"/></line>
+        </g>
+        <circle cx="128" cy="23" r="7" fill="#a8d940"/><text x="128" y="27" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">2</text>
+
+        <!-- PIPE 2→3 -->
+        <line x1="132" y1="62" x2="170" y2="62" stroke="rgba(96,208,255,0.2)" stroke-width="5" stroke-linecap="round"/>
+        <rect x="132" y="48" width="40" height="11" rx="5.5" fill="rgba(96,208,255,0.15)"/>
+        <text x="152" y="56" text-anchor="middle" fill="#60d0ff" font-size="6" font-family="Poppins,sans-serif" font-weight="600">PURE WATER</text>
+        <circle r="3.5" fill="#60d0ff" opacity="0.9"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+        <circle r="2.5" fill="#60d0ff" opacity="0.7"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.8s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+        <circle r="2" fill="#60d0ff" opacity="0.5"><animateMotion dur="1.5s" repeatCount="indefinite" begin="1.3s"><mpath><path d="M132,62 L170,62"/></mpath></animateMotion></circle>
+
+        <!-- 3. STORAGE TANK -->
+        <ellipse cx="200" cy="32" rx="25" ry="8" fill="#3a7010" opacity="0.8"/>
+        <rect x="175" y="32" width="50" height="80" fill="rgba(26,77,46,0.6)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+        <ellipse cx="200" cy="112" rx="25" ry="8" fill="#1a4d2e"/>
+        <rect x="176" y="72" width="48" height="40" fill="rgba(96,208,255,0.3)">
+          <animate attributeName="y" values="90;68;90" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="height" values="22;44;22" dur="4s" repeatCount="indefinite"/>
+        </rect>
+        <ellipse cx="200" cy="70" rx="20" ry="5" fill="rgba(96,208,255,0.45)">
+          <animate attributeName="ry" values="5;8;5" dur="2.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.45;0.75;0.45" dur="2.2s" repeatCount="indefinite"/>
+        </ellipse>
+        <text x="200" y="87" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold" font-family="Poppins,sans-serif">SS TANK</text>
+        <text x="200" y="98" text-anchor="middle" fill="rgba(96,208,255,0.9)" font-size="7.5" font-family="Poppins,sans-serif">1000L</text>
+        <circle cx="222" cy="22" r="7" fill="#a8d940"/><text x="222" y="26" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">3</text>
+
+        <!-- PIPE 3→4 -->
+        <path d="M200,112 L200,132 L268,132 L268,158" stroke="rgba(96,208,255,0.2)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="204" y="122" width="52" height="11" rx="5.5" fill="rgba(96,208,255,0.12)"/>
+        <text x="230" y="130" text-anchor="middle" fill="rgba(96,208,255,0.75)" font-size="6" font-family="Poppins,sans-serif">16mm FLEXI PIPE</text>
+        <circle r="3.5" fill="#60d0ff" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0.5s"><mpath><path d="M200,112 L200,132 L268,132 L268,158"/></mpath></animateMotion></circle>
+        <circle r="2.5" fill="#60d0ff" opacity="0.7"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s"><mpath><path d="M200,112 L200,132 L268,132 L268,158"/></mpath></animateMotion></circle>
+
+        <!-- 4. HOME UV DISPENSER -->
+        <polygon points="268,158 246,158 246,196 290,196 290,158" fill="rgba(26,77,46,0.5)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+        <polygon points="240,160 268,138 296,160" fill="rgba(26,77,46,0.7)" stroke="rgba(168,217,64,0.4)" stroke-width="1.5"/>
+        <rect x="259" y="178" width="18" height="18" rx="2" fill="rgba(168,217,64,0.2)" stroke="rgba(168,217,64,0.5)" stroke-width="1"/>
+        <rect x="248" y="164" width="12" height="9" rx="2" fill="rgba(96,208,255,0.3)" stroke="rgba(96,208,255,0.6)" stroke-width="1"/>
+        <circle cx="268" cy="168" r="9" fill="rgba(96,208,255,0.1)">
+          <animate attributeName="r" values="9;14;9" dur="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.1;0.22;0.1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="268" y="172" text-anchor="middle" fill="#60d0ff" font-size="8" font-family="Arial">&#x2600;</text>
+        <text x="268" y="208" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">UV DISPENSER</text>
+        <circle cx="292" cy="140" r="7" fill="#a8d940"/><text x="292" y="144" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">4</text>
+        <circle cx="272" cy="198" r="3" fill="#60d0ff" opacity="0">
+          <animate attributeName="cy" values="197;210" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+          <animate attributeName="opacity" values="0.9;0" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+        </circle>
+        <circle cx="266" cy="198" r="2.5" fill="#60d0ff" opacity="0">
+          <animate attributeName="cy" values="197;208" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+          <animate attributeName="opacity" values="0.7;0" dur="1.2s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+
+        <!-- WIRE UV→IoT -->
+        <path d="M290,168 Q318,168 332,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+        <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
+        <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
+        <rect x="310" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
+        <text x="323" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
+
+        <!-- 5. IoT MONITOR -->
+        <g transform="translate(332,68)">
+          <rect x="-22" y="-18" width="44" height="32" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(168,217,64,0.6)" stroke-width="1.5"/>
+          <rect x="-17" y="-13" width="34" height="19" rx="3" fill="rgba(168,217,64,0.1)"/>
+          <polyline points="-13,-6 -8,-2 -3,-9 2,-4 7,-8 12,-3 17,-7" fill="none" stroke="#a8d940" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+          </polyline>
+          <text x="0" y="24" text-anchor="middle" fill="rgba(168,217,64,0.9)" font-size="11" font-family="Arial">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>&#x1F4F6;</text>
+          <text x="0" y="36" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">IoT MONITOR</text>
+          <circle cx="20" cy="-22" r="7" fill="#a8d940"/><text x="20" y="-18" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">5</text>
+        </g>
+
+        <!-- ZERO WASTE BADGE -->
+        <rect x="4" y="158" width="72" height="26" rx="7" fill="rgba(168,217,64,0.15)" stroke="rgba(168,217,64,0.4)" stroke-width="1"/>
+        <text x="40" y="168" text-anchor="middle" fill="#a8d940" font-size="6.5" font-family="Poppins,sans-serif" font-weight="700">&#x2713; ZERO WASTE</text>
+        <text x="40" y="178" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif">100% Recovery</text>
+      </svg>
+    </div>
+
+    <!-- Step legend below -->
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;">
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">1</span>Inlet Source
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">2</span>Central RO Filter
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">3</span>SS Storage Tank
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">4</span>Home UV Dispenser
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">5</span>IoT Monitor
+      </div>
+    </div>
+
+    <!-- Hint -->
+    <p style="text-align:center;font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);margin-top:14px;">Click outside or press ESC to close</p>
+  </div>
+</div>
+
+<script>
+  function openROModal() {
+    const m = document.getElementById('ro-modal');
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
+      m.querySelector('div[style*="border-radius:24px"]').style.animation = 'modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards';
+    });
+  }
+  function closeROModal() {
+    document.getElementById('ro-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // ── Lead Modal ──────────────────────────────────────────
+  function openLeadModal() {
+    document.getElementById('lead-form-view').style.display = 'block';
+    document.getElementById('lead-thankyou').style.display = 'none';
+    ['f-apt','f-name','f-phone','f-addr'].forEach(id => document.getElementById(id).value = '');
+    validateLead();
+    document.getElementById('lead-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLeadModal() {
+    document.getElementById('lead-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeROModal(); closeLeadModal(); }
+  });
+
+  function isValidIndianPhone(n) {
+    if (n.length !== 10) return { ok: false, msg: 'Must be exactly 10 digits.' };
+    if (!/^[6-9]/.test(n)) return { ok: false, msg: 'Must start with 6, 7, 8 or 9.' };
+    if (/^(\d)\1{9}$/.test(n)) return { ok: false, msg: 'Please enter a valid mobile number.' };
+    const seq = '0123456789876543210';
+    if (seq.includes(n)) return { ok: false, msg: 'Please enter a valid mobile number.' };
+    let asc = 0, desc = 0;
+    for (let i = 1; i < n.length; i++) {
+      asc  = (+n[i] === +n[i-1]+1) ? asc+1 : 0;
+      desc = (+n[i] === +n[i-1]-1) ? desc+1 : 0;
+      if (asc >= 5 || desc >= 5) return { ok: false, msg: 'Please enter a valid mobile number.' };
+    }
+    return { ok: true, msg: '' };
+  }
+
+  function validateLead() {
+    const apt   = document.getElementById('f-apt').value.trim();
+    const name  = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const addr  = document.getElementById('f-addr').value.trim();
+    const phoneCheck = isValidIndianPhone(phone);
+    const valid = apt.length >= 2 && name.length >= 2 && phoneCheck.ok && addr.length >= 5;
+    const ePhone = document.getElementById('e-phone');
+    if (phone.length > 0 && !phoneCheck.ok) { ePhone.textContent = phoneCheck.msg; ePhone.style.display = 'block'; }
+    else { ePhone.style.display = 'none'; }
+    const btn = document.getElementById('lead-submit');
+    btn.disabled = !valid;
+    btn.style.background = valid ? 'var(--green-dark)' : 'rgba(26,77,46,0.15)';
+    btn.style.color       = valid ? 'white' : 'rgba(26,77,46,0.35)';
+    btn.style.cursor      = valid ? 'pointer' : 'not-allowed';
+  }
+
+  async function submitLead() {
+    const apt   = document.getElementById('f-apt').value.trim();
+    const name  = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const addr  = document.getElementById('f-addr').value.trim();
+    const btn   = document.getElementById('lead-submit');
+    btn.textContent = 'Submitting…'; btn.disabled = true; btn.style.opacity = '0.7';
+
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbybiMOxkSCJq53y1Ye55U73kWTZZ6JrcEOUzBBzsTcv6VMYccO-bvy2Pb6Beh4EpS-Rvw/exec';
+
+    // Use a hidden iframe + form to bypass CORS — most reliable method for Apps Script
+    try {
+      const iframe = document.createElement('iframe');
+      iframe.name = 'hidden_submit_' + Date.now();
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = SHEET_URL;
+      form.target = iframe.name;
+      form.style.display = 'none';
+
+      const fields = {
+        apartmentName: apt,
+        managerName:   name,
+        managerNumber: '+91' + phone,
+        address:       addr,
+        timestamp:     new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      };
+
+      Object.entries(fields).forEach(([key, val]) => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = key;
+        input.value = val;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Clean up after a short delay
+      setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      }, 5000);
+
+    } catch(e) {
+      console.error('Submit error:', e);
+    }
+
+    // Show thank you immediately — don't wait for sheet response
+    document.getElementById('lead-form-view').style.display = 'none';
+    document.getElementById('lead-thankyou').style.display = 'block';
+  }
+</script>
+
+<!-- APPS SCRIPT URL CONFIG BAR (shown until URL is configured) -->
+<div id="config-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#1a4d2e;border-top:2px solid #a8d940;padding:12px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.8);font-weight:500;">Google Sheet not connected yet. Paste your Apps Script URL:</span>
+  <input id="sheet-url-input" type="text" placeholder="https://script.google.com/macros/s/YOUR_ID/exec"
+    style="flex:1;min-width:260px;padding:8px 14px;border-radius:8px;border:1px solid rgba(168,217,64,0.4);background:rgba(255,255,255,0.1);color:white;font-family:'Poppins',sans-serif;font-size:12px;outline:none;">
+  <button onclick="saveSheetURL()" style="padding:8px 20px;background:#a8d940;color:#0d2818;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">Save & Connect</button>
+  <button onclick="document.getElementById('config-bar').style.display='none'" style="padding:8px 14px;background:rgba(255,255,255,0.1);color:white;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:12px;cursor:pointer;">Dismiss</button>
+</div>
+
+<script>
+  // Load saved URL from localStorage on page load
+  (function() {
+    const REAL_URL = 'https://script.google.com/macros/s/AKfycbybiMOxkSCJq53y1Ye55U73kWTZZ6JrcEOUzBBzsTcv6VMYccO-bvy2Pb6Beh4EpS-Rvw/exec';
+    window._proWaterSheetURL = REAL_URL;
+    localStorage.setItem('prowater_sheet_url', REAL_URL);
+    // Config bar stays hidden — URL is already set
+    const bar = document.getElementById('config-bar');
+    if (bar) bar.style.display = 'none';
+  })();
+
+  function saveSheetURL() {
+    const url = document.getElementById('sheet-url-input').value.trim();
+    if (!url.includes('script.google.com')) {
+      alert('Please paste a valid Apps Script URL (must contain script.google.com)');
+      return;
+    }
+    localStorage.setItem('prowater_sheet_url', url);
+    window._proWaterSheetURL = url;
+    document.getElementById('config-bar').style.display = 'none';
+    alert('✅ Google Sheet connected! Fill a lead to test it.');
+  }
+</script>
+<div id="lead-modal" style="display:none;position:fixed;inset:0;z-index:9998;align-items:center;justify-content:center;">
+  <div onclick="closeLeadModal()" style="position:absolute;inset:0;background:rgba(10,20,14,0.82);backdrop-filter:blur(6px);"></div>
+  <div style="position:relative;z-index:1;background:#fff;border-radius:24px;padding:40px 36px 32px;max-width:480px;width:92%;box-shadow:0 32px 80px rgba(0,0,0,0.3);animation:modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;">
+
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;">
+      <div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--green-mid);margin-bottom:6px;">Get in Touch</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:rgb(12,58,64);margin:0;line-height:1.25;">Tell us about your<br>society</h3>
+        <p style="font-family:'Poppins',sans-serif;font-size:13px;color:rgb(78,75,102);margin:8px 0 0;">We'll reach out within 24 hours.</p>
+      </div>
+      <button onclick="closeLeadModal()" style="width:36px;height:36px;border-radius:50%;background:rgba(26,77,46,0.07);border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#1a4d2e;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='rgba(230,57,70,0.1)';this.style.color='#e63946'" onmouseout="this.style.background='rgba(26,77,46,0.07)';this.style.color='#1a4d2e'">✕</button>
+    </div>
+
+    <!-- FORM -->
+    <div id="lead-form-view">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <div>
+          <label style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:rgb(12,58,64);display:block;margin-bottom:6px;">Apartment Name <span style="color:#e63946;">*</span></label>
+          <input id="f-apt" type="text" placeholder="e.g. Prestige Lakeside Habitat" oninput="validateLead()"
+            style="width:100%;padding:12px 16px;border:1.5px solid rgba(26,77,46,0.2);border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;color:rgb(12,58,64);outline:none;box-sizing:border-box;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(26,77,46,0.2)'">
+        </div>
+
+        <div>
+          <label style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:rgb(12,58,64);display:block;margin-bottom:6px;">Manager Name <span style="color:#e63946;">*</span></label>
+          <input id="f-name" type="text" placeholder="Full name" oninput="validateLead()"
+            style="width:100%;padding:12px 16px;border:1.5px solid rgba(26,77,46,0.2);border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;color:rgb(12,58,64);outline:none;box-sizing:border-box;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(26,77,46,0.2)'">
+        </div>
+
+        <div>
+          <label style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:rgb(12,58,64);display:block;margin-bottom:6px;">Manager Number <span style="color:#e63946;">*</span></label>
+          <div style="display:flex;gap:8px;">
+            <div style="padding:12px 14px;background:rgba(26,77,46,0.06);border:1.5px solid rgba(26,77,46,0.2);border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:rgb(12,58,64);white-space:nowrap;display:flex;align-items:center;">+91</div>
+            <input id="f-phone" type="tel" placeholder="10-digit mobile number" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10);validateLead()"
+              style="flex:1;padding:12px 16px;border:1.5px solid rgba(26,77,46,0.2);border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;color:rgb(12,58,64);outline:none;box-sizing:border-box;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(26,77,46,0.2)'">
+          </div>
+          <div id="e-phone" style="font-family:'Poppins',sans-serif;font-size:11px;color:#e63946;margin-top:4px;display:none;"></div>
+        </div>
+
+        <div>
+          <label style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:rgb(12,58,64);display:block;margin-bottom:6px;">Address <span style="color:#e63946;">*</span></label>
+          <textarea id="f-addr" rows="3" placeholder="Society address including city and pincode" oninput="validateLead()"
+            style="width:100%;padding:12px 16px;border:1.5px solid rgba(26,77,46,0.2);border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;color:rgb(12,58,64);outline:none;box-sizing:border-box;resize:none;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='var(--green-mid)'" onblur="this.style.borderColor='rgba(26,77,46,0.2)'"></textarea>
+        </div>
+
+      </div>
+      <button id="lead-submit" onclick="submitLead()" disabled
+        style="width:100%;margin-top:24px;padding:16px;border-radius:14px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;border:none;cursor:not-allowed;background:rgba(26,77,46,0.15);color:rgba(26,77,46,0.35);transition:all 0.3s;">
+        Submit
+      </button>
+      <p style="font-family:'Poppins',sans-serif;font-size:11px;color:rgb(130,125,150);text-align:center;margin-top:12px;">🔒 Your details are safe with us</p>
+    </div>
+
+    <!-- THANK YOU -->
+    <div id="lead-thankyou" style="display:none;text-align:center;padding:16px 0;">
+      <div style="width:72px;height:72px;background:rgba(168,217,64,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:2px solid rgba(168,217,64,0.4);">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4a8c1c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:rgb(12,58,64);margin:0 0 10px;">Thank You! 🎉</h3>
+      <p style="font-family:'Poppins',sans-serif;font-size:14px;color:rgb(78,75,102);line-height:1.7;margin:0 0 6px;">We've received your details. A ProWater representative will reach out within <strong style="color:var(--green-dark);">24 hours</strong>.</p>
+      <p style="font-family:'Poppins',sans-serif;font-size:13px;color:rgb(120,115,140);margin:0 0 28px;">Get ready to experience India's 1st piped RO water — <em>zero waste, zero hassle.</em></p>
+      <button onclick="closeLeadModal()" style="padding:14px 36px;border-radius:50px;background:var(--green-dark);color:white;border:none;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;" onmouseover="this.style.background='var(--green-mid)'" onmouseout="this.style.background='var(--green-dark)'">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @keyframes modalIn {
+    from { opacity:0; transform:scale(0.88) translateY(20px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+  }
+</style>
+</body>
+</html>
