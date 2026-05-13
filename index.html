@@ -1205,10 +1205,20 @@
     .solution-visual { padding: 36px 28px; }
     .solution-visual-title { font-size: 22px; }
 
-    /* Pricing */
-    #pricing-grid { grid-template-columns: 1fr; max-width: 100%; padding-top: 28px; }
-    #card-3 { margin-top: 32px; }
+    /* Pricing — full width single column, no overflow clipping */
+    #pricing-grid { grid-template-columns: 1fr !important; max-width: 100%; padding-top: 28px; }
+    #card-1, #card-2 { overflow: hidden !important; width: 100%; }
+    #card-3 { margin-top: 32px !important; overflow: visible !important; width: 100%; }
+    #card-3 > div:last-child { width: 100% !important; box-sizing: border-box; }
     .plan-price { font-size: 36px !important; }
+    /* Fix inline grid on card bodies */
+    #card-1 > div:last-child,
+    #card-2 > div:last-child { padding: 20px 18px !important; }
+    /* Plan name text wrap fix */
+    .plan-features li { word-break: break-word; }
+
+    /* See How It Works — ensure button is tappable on mobile */
+    #see-how-btn { -webkit-tap-highlight-color: rgba(0,0,0,0); touch-action: manipulation; }
 
     /* Benefits */
     .benefits-split { padding: 56px 20px; }
@@ -1400,7 +1410,7 @@
         Get Free Installation
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <button onclick="openROModal()" class="btn-secondary" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-size:15px;font-family:'Poppins',sans-serif;font-weight:500;padding:0;transition:color 0.2s;">
+      <button id="see-how-btn" onclick="openROModal()" class="btn-secondary" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-size:15px;font-family:'Poppins',sans-serif;font-weight:500;padding:8px 0;transition:color 0.2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;">
         See How It Works
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
       </button>
@@ -2389,12 +2399,12 @@
 </script>
 
 <!-- RO ANIMATION MODAL -->
-<div id="ro-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;">
+<div id="ro-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;overflow-y:auto;">
   <!-- Backdrop -->
   <div onclick="closeROModal()" style="position:absolute;inset:0;background:rgba(10,20,14,0.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"></div>
 
   <!-- Modal card -->
-  <div id="ro-modal-card" style="position:relative;z-index:1;background:#1a4d2e;border-radius:24px;padding:32px 28px 24px;max-width:780px;width:92%;box-shadow:0 32px 80px rgba(0,0,0,0.5);border:1.5px solid rgba(168,217,64,0.25);">
+  <div id="ro-modal-card" style="position:relative;z-index:1;background:#1a4d2e;border-radius:24px;padding:28px 20px 20px;max-width:780px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,0.5);border:1.5px solid rgba(168,217,64,0.25);margin:auto;">
 
     <!-- Header -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
@@ -2715,9 +2725,9 @@
     alert('✅ Google Sheet connected! Fill a lead to test it.');
   }
 </script>
-<div id="lead-modal" style="display:none;position:fixed;inset:0;z-index:9998;align-items:center;justify-content:center;">
-  <div onclick="closeLeadModal()" style="position:absolute;inset:0;background:rgba(10,20,14,0.82);backdrop-filter:blur(6px);"></div>
-  <div style="position:relative;z-index:1;background:#fff;border-radius:24px;padding:40px 36px 32px;max-width:480px;width:92%;box-shadow:0 32px 80px rgba(0,0,0,0.3);animation:modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;">
+<div id="lead-modal" style="display:none;position:fixed;inset:0;z-index:9998;align-items:flex-start;justify-content:center;padding:16px;box-sizing:border-box;overflow-y:auto;">
+  <div onclick="closeLeadModal()" style="position:fixed;inset:0;background:rgba(10,20,14,0.82);backdrop-filter:blur(6px);z-index:0;"></div>
+  <div style="position:relative;z-index:1;background:#fff;border-radius:24px;padding:32px 24px 28px;max-width:480px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,0.3);animation:modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;margin:auto;">
 
     <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;">
       <div>
