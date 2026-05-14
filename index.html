@@ -2618,7 +2618,7 @@
     document.body.style.overflow = '';
   }
 
-  // ── Lead Modal ──────────────────────────────────────────
+  // -- Lead Modal ------------------------------------------
   function openLeadModal() {
     document.getElementById('lead-form-view').style.display = 'block';
     document.getElementById('lead-thankyou').style.display = 'none';
@@ -2679,7 +2679,7 @@
 
     const SHEET_URL = 'https://script.google.com/macros/s/AKfycbybiMOxkSCJq53y1Ye55U73kWTZZ6JrcEOUzBBzsTcv6VMYccO-bvy2Pb6Beh4EpS-Rvw/exec';
 
-    // Use a hidden iframe + form to bypass CORS — most reliable method for Apps Script
+    // Use a hidden iframe + form to bypass CORS  --  most reliable method for Apps Script
     try {
       const iframe = document.createElement('iframe');
       iframe.name = 'hidden_submit_' + Date.now();
@@ -2724,14 +2724,14 @@
       console.error('Submit error:', e);
     }
 
-    // Show thank you immediately — don't wait for sheet response
+    // Show thank you immediately  --  don't wait for sheet response
     document.getElementById('lead-form-view').style.display = 'none';
     document.getElementById('lead-thankyou').style.display = 'block';
   }
 </script>
 
 <!-- APPS SCRIPT URL CONFIG BAR (shown until URL is configured) -->
-<div id="config-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#1a4d2e;border-top:2px solid #a8d940;padding:12px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+<div id="config-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#1a4d2e;border-top:2px solid #a8d940;padding:12px 24px;align-items:center;gap:12px;flex-wrap:wrap;">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
   <span style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.8);font-weight:500;">Google Sheet not connected yet. Paste your Apps Script URL:</span>
   <input id="sheet-url-input" type="text" placeholder="https://script.google.com/macros/s/YOUR_ID/exec"
@@ -2746,7 +2746,7 @@
     const REAL_URL = 'https://script.google.com/macros/s/AKfycbybiMOxkSCJq53y1Ye55U73kWTZZ6JrcEOUzBBzsTcv6VMYccO-bvy2Pb6Beh4EpS-Rvw/exec';
     window._proWaterSheetURL = REAL_URL;
     localStorage.setItem('prowater_sheet_url', REAL_URL);
-    // Config bar stays hidden — URL is already set
+    // Config bar stays hidden  --  URL is already set
     const bar = document.getElementById('config-bar');
     if (bar) bar.style.display = 'none';
   })();
@@ -2994,5 +2994,597 @@
 <style>
   @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
+
+<!-- PROWATER CHATBOT -->
+<style>
+  /* Chatbot bubble button */
+  #chat-bubble {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(26,77,46,0.4);
+    z-index: 10002;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: bubble-pulse 3s ease-in-out infinite;
+  }
+  #chat-bubble:hover { transform: scale(1.08); box-shadow: 0 10px 32px rgba(26,77,46,0.5); }
+  @keyframes bubble-pulse {
+    0%,100% { box-shadow: 0 6px 24px rgba(26,77,46,0.4), 0 0 0 0 rgba(26,77,46,0.25); }
+    50%      { box-shadow: 0 6px 24px rgba(26,77,46,0.4), 0 0 0 10px rgba(26,77,46,0); }
+  }
+  /* Notification dot */
+  #chat-notif {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 14px; height: 14px;
+    background: #f5c518;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: notif-bounce 1s ease-in-out 2s 3;
+  }
+  @keyframes notif-bounce {
+    0%,100% { transform: scale(1); }
+    50%      { transform: scale(1.3); }
+  }
+  /* Chat window */
+  #chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    width: 360px;
+    max-height: 540px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    display: none;
+    flex-direction: column;
+    z-index: 10001;
+    overflow: hidden;
+    border: 1px solid rgba(26,77,46,0.1);
+    animation: chat-slide-up 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes chat-slide-up {
+    from { opacity:0; transform:translateY(20px) scale(0.95); }
+    to   { opacity:1; transform:translateY(0) scale(1); }
+  }
+  /* Chat header */
+  #chat-header {
+    background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  #chat-avatar {
+    width: 38px; height: 38px;
+    background: rgba(168,217,64,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(168,217,64,0.4);
+    flex-shrink: 0;
+  }
+  #chat-header-text h4 {
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+  }
+  #chat-header-text p {
+    font-family: Poppins, sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    margin: 2px 0 0;
+  }
+  #chat-close {
+    margin-left: auto;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  #chat-close:hover { background: rgba(255,255,255,0.2); }
+  /* Online indicator */
+  .chat-online { display: flex; align-items: center; gap: 5px; }
+  .chat-online-dot { width: 7px; height: 7px; background: #a8d940; border-radius: 50%; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  /* Messages area */
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8fdf9;
+  }
+  #chat-messages::-webkit-scrollbar { width: 4px; }
+  #chat-messages::-webkit-scrollbar-thumb { background: rgba(26,77,46,0.2); border-radius: 4px; }
+  /* Message bubbles */
+  .msg-bot, .msg-user {
+    max-width: 82%;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    border-radius: 16px;
+    padding: 10px 14px;
+    word-break: break-word;
+  }
+  .msg-bot {
+    background: white;
+    color: rgb(12,58,64);
+    border: 1px solid rgba(26,77,46,0.1);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .msg-user {
+    background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+  /* Bot label */
+  .msg-bot-wrap { display: flex; flex-direction: column; gap: 4px; align-self: flex-start; max-width: 82%; }
+  .msg-bot-label { font-family: Poppins,sans-serif; font-size: 10px; font-weight: 600; color: rgba(26,77,46,0.5); margin-left: 2px; }
+  /* Feedback row */
+  .msg-feedback {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .msg-feedback span { font-family: Poppins,sans-serif; font-size: 10px; color: rgb(120,115,150); }
+  .feedback-btn {
+    background: none;
+    border: 1px solid rgba(26,77,46,0.15);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-family: Poppins,sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgb(78,75,102);
+  }
+  .feedback-btn:hover { background: rgba(26,77,46,0.07); }
+  .feedback-btn.good { border-color: #a8d940; color: #1a4d2e; }
+  .feedback-btn.bad  { border-color: #e63946; color: #e63946; }
+  .feedback-done { font-family: Poppins,sans-serif; font-size: 11px; color: #2d7a4f; font-weight: 600; }
+  /* Quick reply chips */
+  .quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-self: flex-start;
+    padding: 0 2px;
+  }
+  .quick-btn {
+    background: white;
+    border: 1.5px solid rgba(26,77,46,0.2);
+    border-radius: 20px;
+    padding: 6px 13px;
+    font-family: Poppins,sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(12,58,64);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .quick-btn:hover { background: rgba(26,77,46,0.06); border-color: #2d7a4f; }
+  /* Typing indicator */
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(26,77,46,0.1);
+    align-self: flex-start;
+    width: fit-content;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .typing-dot {
+    width: 7px; height: 7px;
+    background: #2d7a4f;
+    border-radius: 50%;
+    animation: typing 1.2s infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing { 0%,60%,100%{transform:translateY(0);opacity:0.5;} 30%{transform:translateY(-5px);opacity:1;} }
+  /* Input area */
+  #chat-input-area {
+    padding: 12px 14px;
+    border-top: 1px solid rgba(26,77,46,0.08);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: white;
+    flex-shrink: 0;
+  }
+  #chat-input {
+    flex: 1;
+    border: 1.5px solid rgba(26,77,46,0.18);
+    border-radius: 20px;
+    padding: 9px 16px;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    color: rgb(12,58,64);
+    outline: none;
+    transition: border-color 0.2s;
+    background: #f8fdf9;
+  }
+  #chat-input:focus { border-color: #2d7a4f; }
+  #chat-send {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  #chat-send:hover { transform: scale(1.08); box-shadow: 0 4px 12px rgba(26,77,46,0.3); }
+  /* Mobile responsive */
+  @media (max-width: 480px) {
+    #chat-window { width: calc(100vw - 24px); right: 12px; bottom: 90px; max-height: 60vh; }
+    #chat-bubble { bottom: 16px; right: 16px; width: 54px; height: 54px; }
+  }
+</style>
+
+<!-- Bubble button -->
+<button id="chat-bubble" onclick="toggleChat()" aria-label="Chat with ProWater Bot">
+  <div id="chat-notif"></div>
+  <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Antenna base -->
+    <rect x="30" y="2" width="4" height="7" rx="2" fill="rgba(255,255,255,0.6)"/>
+    <!-- Antenna glow dot -->
+    <circle cx="32" cy="2" r="3" fill="#a8d940">
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="3;4;3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Head -->
+    <rect x="16" y="9" width="32" height="22" rx="8" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2"/>
+    <!-- Eye left - glowing -->
+    <circle cx="25" cy="20" r="4" fill="white"/>
+    <circle cx="25" cy="20" r="2.2" fill="#a8d940"/>
+    <circle cx="26.2" cy="18.8" r="0.8" fill="white"/>
+    <!-- Eye right - glowing -->
+    <circle cx="39" cy="20" r="4" fill="white"/>
+    <circle cx="39" cy="20" r="2.2" fill="#a8d940"/>
+    <circle cx="40.2" cy="18.8" r="0.8" fill="white"/>
+    <!-- Mouth / smile bar -->
+    <rect x="24" y="26" width="16" height="2.5" rx="1.25" fill="rgba(255,255,255,0.5)"/>
+    <!-- Neck -->
+    <rect x="29" y="31" width="6" height="5" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <!-- Body -->
+    <rect x="14" y="36" width="36" height="22" rx="8" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2"/>
+    <!-- Chest panel -->
+    <rect x="22" y="41" width="20" height="11" rx="4" fill="rgba(168,217,64,0.25)" stroke="rgba(168,217,64,0.8)" stroke-width="1.2"/>
+    <!-- Chest dots -->
+    <circle cx="27" cy="46.5" r="2" fill="#a8d940">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="32" cy="46.5" r="2" fill="white" opacity="0.6"/>
+    <circle cx="37" cy="46.5" r="2" fill="#a8d940">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Left arm -->
+    <rect x="5" y="37" width="8" height="16" rx="4" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="1.8"/>
+    <!-- Left hand -->
+    <circle cx="9" cy="54" r="3.5" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+    <!-- Right arm -->
+    <rect x="51" y="37" width="8" height="16" rx="4" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="1.8"/>
+    <!-- Right hand -->
+    <circle cx="55" cy="54" r="3.5" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+  </svg>
+</button>
+
+<!-- Chat window -->
+<div id="chat-window">
+  <div id="chat-header">
+    <div id="chat-avatar">
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="2" width="4" height="7" rx="2" fill="rgba(168,217,64,0.5)"/>
+        <circle cx="32" cy="2" r="3" fill="#a8d940"/>
+        <rect x="16" y="9" width="32" height="22" rx="8" fill="rgba(168,217,64,0.1)" stroke="#a8d940" stroke-width="2"/>
+        <circle cx="25" cy="20" r="4" fill="white"/>
+        <circle cx="25" cy="20" r="2.2" fill="#a8d940"/>
+        <circle cx="26.2" cy="18.8" r="0.8" fill="white"/>
+        <circle cx="39" cy="20" r="4" fill="white"/>
+        <circle cx="39" cy="20" r="2.2" fill="#a8d940"/>
+        <circle cx="40.2" cy="18.8" r="0.8" fill="white"/>
+        <rect x="24" y="26" width="16" height="2.5" rx="1.25" fill="rgba(168,217,64,0.6)"/>
+        <rect x="29" y="31" width="6" height="5" rx="2" fill="rgba(168,217,64,0.3)"/>
+        <rect x="14" y="36" width="36" height="22" rx="8" fill="rgba(168,217,64,0.1)" stroke="#a8d940" stroke-width="2"/>
+        <rect x="22" y="41" width="20" height="11" rx="4" fill="rgba(168,217,64,0.2)" stroke="#a8d940" stroke-width="1.2"/>
+        <circle cx="27" cy="46.5" r="2" fill="#a8d940"/>
+        <circle cx="32" cy="46.5" r="2" fill="white" opacity="0.5"/>
+        <circle cx="37" cy="46.5" r="2" fill="#a8d940"/>
+        <rect x="5" y="37" width="8" height="14" rx="4" fill="rgba(168,217,64,0.1)" stroke="#a8d940" stroke-width="1.8"/>
+        <rect x="51" y="37" width="8" height="14" rx="4" fill="rgba(168,217,64,0.1)" stroke="#a8d940" stroke-width="1.8"/>
+      </svg>
+    </div>
+    <div id="chat-header-text">
+      <h4>ProWater Bot 💧</h4>
+      <div class="chat-online"><div class="chat-online-dot"></div><p>Online · Ask me anything</p></div>
+    </div>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div id="chat-messages"></div>
+
+  <div id="chat-input-area">
+    <input id="chat-input" type="text" placeholder="Ask about ProWater…" onkeydown="if(event.key==='Enter')sendMessage()">
+    <button id="chat-send" onclick="sendMessage()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // -- FAQ Knowledge Base ----------------------------------------
+
+  // ── FAQ Knowledge Base (uses backtick strings to avoid apostrophe issues) ──
+  const FAQ = [
+    {
+      q: ['what is prowater','what is pro water','tell me about prowater','about prowater'],
+      a: `ProWater is a subscription-based water purification service that delivers safe, clean drinking water to your home with <strong>no upfront cost</strong>. It uses a centralized multi-filtration RO process with <strong>zero water wastage</strong>, and your monthly plan covers maintenance, servicing, and filter replacements.`
+    },
+    {
+      q: ['how does it work','how does prowater work','centralized system','how does the system work','how water purified'],
+      a: `The system purifies incoming water at your building's <strong>terrace or overhead tank</strong>, then distributes clean drinking water directly to every home through a dedicated 16mm pipeline -- similar to a gas line connection.`
+    },
+    {
+      q: ['water source','what water sources','borewell','tanker','municipal','what type of water'],
+      a: `ProWater supports <strong>all common water sources</strong> -- borewell water, tanker water, and municipal supply -- effectively removing high TDS levels and impurities from each.`
+    },
+    {
+      q: ['purification technology','what technology','filtration stages','how many stages','ro membrane','sediment filter'],
+      a: `The Central RO uses a <strong>6-stage process</strong>:<br>1. Sediment Filter<br>2. Pre-Carbon Filter<br>3. First RO Membrane<br>4. Second RO Membrane<br>5. UV Disinfection<br>6. Post-Carbon Filter<br><br>This ensures thorough removal of contaminants, bacteria, and dissolved impurities.`
+    },
+    {
+      q: ['taste','improve taste','better taste','taste of water'],
+      a: `Yes! The system retains <strong>balanced essential minerals</strong> while removing harmful impurities, resulting in noticeably cleaner, better-tasting water.`
+    },
+    {
+      q: ['tds','live tds','monitor tds','check water quality','water quality','app'],
+      a: `Yes. Live <strong>TDS (Total Dissolved Solids)</strong> readings can be monitored in real time through the <strong>ProWater App</strong>, so you always know the quality of water you're drinking.`
+    },
+    {
+      q: ['zero wastage','water wastage','waste','wastage','zero water waste','water waste'],
+      a: `Traditional RO purifiers waste <strong>3 litres for every 1 litre purified</strong>. Our centralized system reduces that to just <strong>300ml per litre -- a 90% reduction</strong>. The reject water is redirected to your building's rainwater harvesting tank for reuse. Result: <strong>effectively zero water wastage</strong>.`
+    },
+    {
+      q: ['price','pricing','cost','how much','plan','plans','monthly','subscription','charges'],
+      a: `Plans start from <strong>Rs.299/month</strong> for unlimited purified water:<br>* RO+UV -- Rs.299/mo<br>* RO+UV+Mineral -- Rs.399/mo<br>* RO+UV+Copper -- Rs.399/mo<br>* RO+UV+Alkaline -- Rs.399/mo<br><br>Annual plans save you <strong>10%</strong>. No upfront installation cost!`
+    },
+    {
+      q: ['cost effective','cheaper','economical','affordable','compare','individual purifier','worth it'],
+      a: `Absolutely! Because infrastructure and maintenance costs are <strong>shared across all residents</strong>, centralized systems are significantly more economical than running separate individual RO units in each home.`
+    },
+    {
+      q: ['deposit','security deposit','refund','refundable'],
+      a: `The security deposit is:<br>* <strong>Rs.2,000</strong> -- Standard purifier<br>* <strong>Rs.4,000</strong> -- Hot water purifier<br><br>Both are <strong>fully refundable</strong> when you discontinue the service.`
+    },
+    {
+      q: ['maintenance','who maintains','service','servicing','filter replacement','repair'],
+      a: `ProWater manages <strong>all maintenance</strong> -- both for the Central RO system and individual purifier units. Servicing, filter replacements, and repairs are all included in your plan!`
+    },
+    {
+      q: ['lifespan','how long','how many years','durable','last'],
+      a: `With proper maintenance, the centralized RO system is built to last <strong>15-20 years</strong>, making it a long-term, reliable infrastructure investment for your apartment complex.`
+    },
+    {
+      q: ['power cut','power outage','no electricity','backup','electricity cut'],
+      a: `Yes! The system includes a <strong>1,000-litre backup storage tank</strong> (per 100 flats) plus storage in individual purifier units, ensuring <strong>continued water supply</strong> during power outages.`
+    },
+    {
+      q: ['hot water','hot and ambient','hot device'],
+      a: `Yes! We offer a <strong>Hot and Ambient Device</strong> that provides both normal and instant hot water at your tap. Available at Rs.499/month (monthly) or Rs.449/month (annual) with a Rs.4,000 refundable deposit.`
+    },
+    {
+      q: ['install','installation','setup','how to install','install process'],
+      a: `Installation is <strong>completely free</strong> for your society. Here is how it works:<br>1. Water quality test<br>2. Custom system design<br>3. Rooftop RO plant installation<br>4. 16mm pipe routing to each flat<br>5. In-home UV dispenser installation<br>6. App setup and you are live!`
+    },
+    {
+      q: ['contact','call','phone','reach','support','help'],
+      a: `You can reach our team at 📞 <strong>70197 58560</strong>. Or click below to leave your details and we will call you back within 24 hours:<br><br><button onclick="toggleChat();setTimeout(openLeadModal,300)" style="background:linear-gradient(135deg,#1a4d2e,#2d7a4f);color:white;border:none;padding:10px 20px;border-radius:20px;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">📋 Leave your details</button>`
+    },
+    {
+      q: ['agent','speak to agent','talk to agent','human','real person','speak to someone','talk to someone','connect agent','live agent','customer care','representative','speak with','talk with','need help','escalate'],
+      a: `Sure! I will connect you with our team right away. 🙌<br><br>Please fill in your details and a <strong>ProWater representative</strong> will call you back within <strong>24 hours</strong>.<br><br><button onclick="toggleChat();setTimeout(openLeadModal,300)" style="background:linear-gradient(135deg,#1a4d2e,#2d7a4f);color:white;border:none;padding:10px 20px;border-radius:20px;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">📋 Fill my details for callback</button>`
+    },
+    {
+      q: ['rwa','society','apartment','benefits for rwa','benefits for society','management'],
+      a: `RWA benefits include:<br>* <strong>Zero setup cost</strong> -- we bear 100% of installation<br>* Save <strong>10 Lakh+ litres/year</strong><br>* Cost savings of <strong>Rs.2.5+ Lakhs/year</strong><br>* Dedicated same-day technician<br>* Per-apartment billing dashboard<br>* Reduced STP load`
+    },
+    {
+      q: ['mineral','copper','alkaline','add on','addon','upgrade mineral'],
+      a: `You can upgrade your water with mineral add-ons anytime via the app:<br>* <strong>Mineral</strong> -- Essential mineral infusion for balanced TDS<br>* <strong>Copper</strong> -- Copper ion infusion for Ayurvedic wellness<br>* <strong>Alkaline</strong> -- Alkaline water (pH 8-9) with anti-oxidant benefits`
+    }
+  ];
+
+  const QUICK_QUESTIONS = [
+    'What is ProWater?',
+    'Plan prices?',
+    'Zero wastage?',
+    'Security deposit?',
+    'Power cut backup?'
+  ];
+
+  let chatOpen = false;
+  let msgCount = 0;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    win.style.display = chatOpen ? 'flex' : 'none';
+    if (chatOpen) {
+      const notif = document.getElementById('chat-notif');
+      if (notif) notif.style.display = 'none';
+      if (msgCount === 0) showWelcome();
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    }
+  }
+
+  function showWelcome() {
+    addBotMessage(`Hi! I'm <strong>ProWater Bot</strong> 💧. Ask me anything about ProWater -- plans, installation, water quality, and more!`);
+    setTimeout(() => addQuickReplies(QUICK_QUESTIONS), 600);
+  }
+
+  function addBotMessage(text, withFeedback = true) {
+    const msgs = document.getElementById('chat-messages');
+    msgCount++;
+    const id = 'msg-' + msgCount;
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-bot-wrap';
+    wrap.innerHTML = `
+      <span class="msg-bot-label">ProWater Bot</span>
+      <div class="msg-bot" id="${id}">${text}</div>
+      ${withFeedback ? `
+      <div class="msg-feedback" id="fb-${id}">
+        <span>Helpful?</span>
+        <button class="feedback-btn good" onclick="submitFeedback('${id}', true)">👍 Yes</button>
+        <button class="feedback-btn bad"  onclick="submitFeedback('${id}', false)">👎 No</button>
+      </div>` : ''}`;
+    msgs.appendChild(wrap);
+    scrollChat();
+  }
+
+  function addUserMessage(text) {
+    const msgs = document.getElementById('chat-messages');
+    const el = document.createElement('div');
+    el.className = 'msg-user';
+    el.textContent = text;
+    msgs.appendChild(el);
+    scrollChat();
+  }
+
+  function addQuickReplies(questions) {
+    const msgs = document.getElementById('chat-messages');
+    const wrap = document.createElement('div');
+    wrap.className = 'quick-replies';
+    wrap.id = 'quick-wrap';
+    questions.forEach(q => {
+      const btn = document.createElement('button');
+      btn.className = 'quick-btn';
+      btn.textContent = q;
+      btn.onclick = () => { removeQuickReplies(); handleUserInput(q); };
+      wrap.appendChild(btn);
+    });
+    msgs.appendChild(wrap);
+    scrollChat();
+  }
+
+  function removeQuickReplies() {
+    document.querySelectorAll('.quick-replies').forEach(el => el.remove());
+  }
+
+  function showTyping() {
+    const msgs = document.getElementById('chat-messages');
+    const el = document.createElement('div');
+    el.className = 'typing-indicator';
+    el.id = 'typing';
+    el.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    msgs.appendChild(el);
+    scrollChat();
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('typing');
+    if (el) el.remove();
+  }
+
+  function scrollChat() {
+    const msgs = document.getElementById('chat-messages');
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function submitFeedback(msgId, positive) {
+    const fbEl = document.getElementById('fb-' + msgId);
+    if (!fbEl) return;
+    fbEl.innerHTML = positive
+      ? '<span class="feedback-done">Thanks for the feedback! 🙏</span>'
+      : '<span class="feedback-done">Sorry about that! We will improve. 😔</span>';
+  }
+
+  function findAnswer(input) {
+    const lower = input.toLowerCase().trim();
+    for (const item of FAQ) {
+      for (const keyword of item.q) {
+        if (lower.includes(keyword) || keyword.includes(lower)) return item.a;
+      }
+    }
+    const words = lower.split(/\s+/).filter(w => w.length > 3);
+    for (const word of words) {
+      for (const item of FAQ) {
+        for (const keyword of item.q) {
+          if (keyword.includes(word)) return item.a;
+        }
+      }
+    }
+    return null;
+  }
+
+  function handleUserInput(text) {
+    if (!text.trim()) return;
+    removeQuickReplies();
+    addUserMessage(text);
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      const answer = findAnswer(text);
+      if (answer) {
+        addBotMessage(answer);
+      } else {
+        addBotMessage(`I'm not sure about that one. You can reach our team directly at <strong>70197 58560</strong> or click below to leave your details and we will call you back!<br><br><button onclick="toggleChat();setTimeout(openLeadModal,300)" style="background:linear-gradient(135deg,#1a4d2e,#2d7a4f);color:white;border:none;padding:10px 20px;border-radius:20px;font-family:Poppins,sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">📋 Leave your details</button>`);
+      }
+      if (msgCount % 4 === 0) {
+        setTimeout(() => addQuickReplies(['Plan prices?', 'Installation?', 'Zero wastage?', 'Contact us']), 400);
+      }
+    }, 900 + Math.random() * 400);
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    handleUserInput(text);
+  }
+
+  setTimeout(() => {
+    const notif = document.getElementById('chat-notif');
+    if (notif && !chatOpen) notif.style.display = 'block';
+  }, 4000);
+</script>
+
 </body>
 </html>
