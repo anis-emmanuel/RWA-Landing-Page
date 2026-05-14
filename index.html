@@ -3338,7 +3338,20 @@
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
 
+  <!-- Chat messages -->
   <div id="chat-messages"></div>
+
+  <!-- Bottom action bar with Start New / Close — hidden until first reply -->
+  <div id="chat-action-bar" style="display:none;gap:8px;padding:8px 14px;background:rgba(26,77,46,0.04);border-top:1px solid rgba(26,77,46,0.07);flex-shrink:0;">
+    <button onclick="startNewConversation()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:10px;border:1.5px solid rgba(26,77,46,0.18);background:white;font-family:Poppins,sans-serif;font-size:12px;font-weight:600;color:rgb(12,58,64);cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(26,77,46,0.06)';this.style.borderColor='#2d7a4f'" onmouseout="this.style.background='white';this.style.borderColor='rgba(26,77,46,0.18)'">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+      Start New
+    </button>
+    <button onclick="toggleChat()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:10px;border:1.5px solid rgba(194,64,10,0.2);background:white;font-family:Poppins,sans-serif;font-size:12px;font-weight:600;color:#c2400a;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(194,64,10,0.06)';this.style.borderColor='#c2400a'" onmouseout="this.style.background='white';this.style.borderColor='rgba(194,64,10,0.2)'">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      Close
+    </button>
+  </div>
 
   <div id="chat-input-area">
     <input id="chat-input" type="text" placeholder="Ask about ProWater…" onkeydown="if(event.key==='Enter')sendMessage()">
@@ -3442,6 +3455,16 @@
   let chatOpen = false;
   let msgCount = 0;
 
+  function startNewConversation() {
+    const msgs = document.getElementById('chat-messages');
+    msgs.innerHTML = '';
+    msgCount = 0;
+    chatOpen = true;
+    const bar = document.getElementById('chat-action-bar');
+    if (bar) bar.style.display = 'none';
+    showWelcome();
+  }
+
   function toggleChat() {
     chatOpen = !chatOpen;
     const win = document.getElementById('chat-window');
@@ -3476,6 +3499,11 @@
       </div>` : ''}`;
     msgs.appendChild(wrap);
     scrollChat();
+    // Show action bar after user has had at least one exchange (msgCount > 1 means welcome was shown)
+    if (msgCount > 1) {
+      const bar = document.getElementById('chat-action-bar');
+      if (bar) bar.style.display = 'flex';
+    }
   }
 
   function addUserMessage(text) {
