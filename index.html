@@ -1217,8 +1217,9 @@
     /* Plan name text wrap fix */
     .plan-features li { word-break: break-word; }
 
-    /* See How It Works — ensure button is tappable on mobile */
-    #see-how-btn { -webkit-tap-highlight-color: rgba(0,0,0,0); touch-action: manipulation; }
+    /* Steps grid responsive */
+    .steps-4-grid { grid-template-columns: repeat(2,1fr) !important; }
+
 
     /* Benefits */
     .benefits-split { padding: 56px 20px; }
@@ -1412,24 +1413,45 @@
         </span>
       </div>
     </div>
-    <h1 class="hero-h1">
-      <em style="color:var(--gold);">ProWater</em><br>
-      Pure Water.<br>
-      <em>Zero Waste.</em><br>
-      Zero Hassle.
+    <h1 class="hero-h1" style="font-size:46px;line-height:1.12;">
+      Centralized RO Water<br>for Apartments.<br>
+      <em>Zero Water Waste.</em><br>
+      <em style="color:rgba(255,255,255,0.75);font-size:38px;">Zero Cost to Your Society.</em>
     </h1>
     <p class="hero-sub">
-      India's 1st centralized piped RO water system delivered directly to every apartment in your society — backed by DrinkPrime and IoT technology.
+      A centralized piped RO system for apartment communities where only subscribing households pay. Reduce tanker dependence, eliminate RO water wastage, and avoid the hassle of individual systems.
     </p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">
-        Get Free Installation
+        Book a Site Assessment
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <button id="see-how-btn" onclick="openROModal()" class="btn-secondary" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-size:15px;font-family:'Poppins',sans-serif;font-weight:500;padding:8px 0;transition:color 0.2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;">
         See How It Works
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
       </button>
+    </div>
+
+    <!-- 3-point value prop strip -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(168,217,64,0.2);border-radius:16px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:20px;height:20px;border-radius:50%;background:rgba(168,217,64,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.85);">No setup cost for the society</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:20px;height:20px;border-radius:50%;background:rgba(168,217,64,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.85);">Residents subscribe individually</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:20px;height:20px;border-radius:50%;background:rgba(168,217,64,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.85);">Maintenance handled by ProWater</span>
+      </div>
     </div>
     <div class="hero-stats">
       <div>
@@ -1475,7 +1497,7 @@
     <div class="hero-visual-card float">
       <div class="hero-visual-top" style="padding:20px 16px 16px;">
         <!-- Animated RO Plant Flow -->
-        <svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+        <svg viewBox="0 0 410 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
           <defs>
             <linearGradient id="roGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" style="stop-color:#a8d940"/>
@@ -1488,7 +1510,8 @@
           <text x="112" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">CENTRAL RO</text>
           <text x="200" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">STORAGE</text>
           <text x="268" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">HOME TAP</text>
-          <text x="332" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+          <text x="318" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+          <text x="388" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">APP</text>
 
           <!-- 1. INLET SOURCE -->
           <circle cx="36" cy="42" r="14" fill="rgba(255,255,255,0.07)" stroke="rgba(168,217,64,0.45)" stroke-width="1.5"/>
@@ -1579,14 +1602,14 @@
           </circle>
 
           <!-- WIRE UV to IoT dashed signal -->
-          <path d="M290,168 Q318,168 332,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
-          <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
-          <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
-          <rect x="310" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
-          <text x="323" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
+          <path d="M290,168 Q310,168 318,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+          <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q310,168 318,94"/></mpath></animateMotion></circle>
+          <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q310,168 318,94"/></mpath></animateMotion></circle>
+          <rect x="296" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
+          <text x="309" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
 
-          <!-- 5. IoT MONITOR -->
-          <g transform="translate(332,68)">
+          <!-- 5. IoT MONITOR (shifted left) -->
+          <g transform="translate(318,68)">
             <rect x="-22" y="-18" width="44" height="32" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(168,217,64,0.6)" stroke-width="1.5"/>
             <rect x="-17" y="-13" width="34" height="19" rx="3" fill="rgba(168,217,64,0.1)"/>
             <polyline points="-13,-6 -8,-2 -3,-9 2,-4 7,-8 12,-3 17,-7" fill="none" stroke="#a8d940" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1597,6 +1620,43 @@
             <text x="0" y="36" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">IoT MONITOR</text>
             <circle cx="20" cy="-22" r="7" fill="#a8d940"/>
             <text x="20" y="-18" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">5</text>
+          </g>
+
+          <!-- WIRE IoT to Mobile App -->
+          <path d="M340,68 L374,68" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="3,2" stroke-linecap="round"/>
+          <circle r="2" fill="#a8d940" opacity="0.8"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath><path d="M340,68 L374,68"/></mpath></animateMotion></circle>
+
+          <!-- 6. MOBILE APP -->
+          <g transform="translate(388,68)">
+            <!-- Phone body -->
+            <rect x="-14" y="-28" width="28" height="48" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(96,208,255,0.7)" stroke-width="1.5"/>
+            <!-- Screen -->
+            <rect x="-10" y="-23" width="20" height="30" rx="3" fill="rgba(96,208,255,0.12)"/>
+            <!-- Status bar dots -->
+            <circle cx="-4" cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="0" cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="4" cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+            <!-- TDS gauge arc on screen -->
+            <path d="M-7,-8 A7,7 0 0,1 7,-8" fill="none" stroke="rgba(168,217,64,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M-7,-8 A7,7 0 0,1 4,-12" fill="none" stroke="#a8d940" stroke-width="2.5" stroke-linecap="round">
+              <animate attributeName="stroke-dasharray" values="0,20;14,20;14,20" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <text x="0" y="-4" text-anchor="middle" fill="#a8d940" font-size="5.5" font-family="Poppins,sans-serif" font-weight="700">TDS</text>
+            <text x="0" y="3" text-anchor="middle" fill="rgba(96,208,255,0.9)" font-size="5" font-family="Poppins,sans-serif">LIVE</text>
+            <!-- Mini bar chart -->
+            <rect x="-8" y="8" width="3" height="5" rx="1" fill="rgba(168,217,64,0.5)"/>
+            <rect x="-4" y="6" width="3" height="7" rx="1" fill="rgba(168,217,64,0.7)"/>
+            <rect x="0" y="4" width="3" height="9" rx="1" fill="#a8d940"/>
+            <rect x="4" y="7" width="3" height="6" rx="1" fill="rgba(168,217,64,0.6)"/>
+            <!-- Home button -->
+            <circle cx="0" cy="22" r="3" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+            <!-- Notch -->
+            <rect x="-5" y="-28" width="10" height="3" rx="1.5" fill="rgba(0,0,0,0.4)"/>
+            <!-- Label -->
+            <text x="0" y="30" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">MOBILE APP</text>
+            <!-- Badge 6 -->
+            <circle cx="13" cy="-32" r="7" fill="#60d0ff"/>
+            <text x="13" y="-28" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">6</text>
           </g>
 
           <!-- ZERO WASTE BADGE -->
@@ -1658,44 +1718,127 @@
   </div>
 </section>
 
+<!-- HOW PROWATER WORKS -->
+<section style="padding:80px 60px;background:var(--white);">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:52px;">
+      <div class="section-tag" style="justify-content:center;margin-bottom:14px;">
+        <span style="display:inline-block;width:20px;height:2px;background:var(--lime);"></span>
+        From Day One to Go Live
+      </div>
+      <h2 class="section-h2" style="margin-bottom:12px;">How ProWater Works</h2>
+      <p style="font-family:'Poppins',sans-serif;font-size:15px;color:var(--text-light);max-width:520px;margin:0 auto;">Four simple steps — from installation to pure water at every tap.</p>
+    </div>
+
+    <!-- 4 Steps grid -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
+
+      <!-- Connecting line behind cards -->
+      <div style="position:absolute;top:44px;left:calc(12.5% + 12px);right:calc(12.5% + 12px);height:2px;background:linear-gradient(90deg,var(--green-dark),var(--lime-bright),var(--green-mid),var(--green-dark));opacity:0.2;z-index:0;border-radius:1px;"></div>
+
+      <!-- Step 1 -->
+      <div class="fade-in" style="position:relative;z-index:1;background:var(--white);border-radius:20px;padding:28px 24px 24px;border:1.5px solid rgba(26,77,46,0.1);box-shadow:0 4px 20px rgba(26,77,46,0.05);text-align:center;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 12px 36px rgba(26,77,46,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,77,46,0.05)';this.style.transform='none'">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1a4d2e,#2d7a4f);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(26,77,46,0.25);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:8px;">Step 1</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:rgb(12,58,64);margin:0 0 10px;line-height:1.35;">Central RO Installation</h4>
+        <p style="font-family:'Poppins',sans-serif;font-size:13px;color:var(--text-light);line-height:1.65;margin:0;">ProWater installs a centralized RO system in the apartment complex — fully funded and managed by us.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="fade-in" style="position:relative;z-index:1;background:var(--white);border-radius:20px;padding:28px 24px 24px;border:1.5px solid rgba(26,77,46,0.1);box-shadow:0 4px 20px rgba(26,77,46,0.05);text-align:center;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 12px 36px rgba(26,77,46,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,77,46,0.05)';this.style.transform='none'">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#2d7a4f,#4caf7d);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(45,122,79,0.25);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z"/><path d="M12 15v4M8 19h8"/>
+          </svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:8px;">Step 2</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:rgb(12,58,64);margin:0 0 10px;line-height:1.35;">Piped to Every Home</h4>
+        <p style="font-family:'Poppins',sans-serif;font-size:13px;color:var(--text-light);line-height:1.65;margin:0;">Purified water is piped directly to interested households via a 16mm dedicated line — just like a gas connection.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="fade-in" style="position:relative;z-index:1;background:var(--white);border-radius:20px;padding:28px 24px 24px;border:1.5px solid rgba(26,77,46,0.1);box-shadow:0 4px 20px rgba(26,77,46,0.05);text-align:center;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 12px 36px rgba(26,77,46,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,77,46,0.05)';this.style.transform='none'">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#a8d940,#7ab020);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(168,217,64,0.3);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:8px;">Step 3</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:rgb(12,58,64);margin:0 0 10px;line-height:1.35;">Residents Subscribe</h4>
+        <p style="font-family:'Poppins',sans-serif;font-size:13px;color:var(--text-light);line-height:1.65;margin:0;">Residents subscribe individually based on their preferred plan. Only participating households pay — no society-wide commitment.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="fade-in" style="position:relative;z-index:1;background:var(--white);border-radius:20px;padding:28px 24px 24px;border:1.5px solid rgba(26,77,46,0.1);box-shadow:0 4px 20px rgba(26,77,46,0.05);text-align:center;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 12px 36px rgba(26,77,46,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,77,46,0.05)';this.style.transform='none'">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#f5c518,#c9a010);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(245,197,24,0.3);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:8px;">Step 4</div>
+        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:rgb(12,58,64);margin:0 0 10px;line-height:1.35;">Society Wins</h4>
+        <p style="font-family:'Poppins',sans-serif;font-size:13px;color:var(--text-light);line-height:1.65;margin:0;">The society benefits from lower tanker dependency, reduced water wastage, and a premium amenity — at zero cost.</p>
+      </div>
+
+    </div>
+
+    <!-- PS note -->
+    <div style="margin-top:36px;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(26,77,46,0.05);border:1px solid rgba(26,77,46,0.1);border-radius:50px;padding:10px 24px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:500;color:var(--text-mid);">
+          <strong style="color:var(--green-dark);">PS:</strong> The association does not bear subscription or maintenance costs.
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="problems" id="problem">
   <div class="section-tag">The Challenge</div>
-  <h2 class="section-h2">Your society is losing thousands of litres — and lakhs of rupees</h2>
-  <p class="section-lead">Conventional domestic RO purifiers create massive hidden costs for residents and RWAs alike.</p>
+  <h2 class="section-h2">The water problems every apartment community faces</h2>
+  <p class="section-lead">From rising tanker bills to scattered maintenance — conventional water setups are costing your society more than you think.</p>
 
   <div class="problems-grid fade-in">
     <div class="problem-card danger">
       <div class="problem-num">01</div>
       <div class="problem-icon red">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z"/><path d="M12 15v3"/><path d="M9 19h6"/></svg>
       </div>
-      <div class="problem-title">Massive Water Wastage</div>
-      <div class="problem-desc">A typical 92-flat society wastes 2,760 litres every single day from domestic ROs — that's 10 lakh litres per year worth ₹2.5 Lakhs.</div>
+      <div class="problem-title">Rising Tanker Costs</div>
+      <div class="problem-desc">Apartment societies are spending lakhs every year on water tankers. With no cap on rates and growing demand, this cost keeps rising — and the RWA bears it all.</div>
     </div>
     <div class="problem-card warning">
       <div class="problem-num">02</div>
       <div class="problem-icon amber">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
       </div>
-      <div class="problem-title">Billing Nightmares</div>
-      <div class="problem-desc">RWAs have no way to bill residents based on actual water consumption. A flat monthly levy creates friction and disputes.</div>
+      <div class="problem-title">Household RO Wastage</div>
+      <div class="problem-desc">Every individual RO unit in your society wastes 3 litres for every 1 litre purified. A 100-flat complex wastes over 10 lakh litres a year — water your society is paying for.</div>
     </div>
     <div class="problem-card danger">
       <div class="problem-num">03</div>
       <div class="problem-icon red">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M12 22V12M6 12l6-10 6 10"/><path d="M5 20h14"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4m0-8h6m0 0v8m0-8H9m6 8h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4"/></svg>
       </div>
-      <div class="problem-title">STP Overload</div>
-      <div class="problem-desc">RO reject water overburdens the Sewage Treatment Plant, causing frequent breakdowns and expensive emergency maintenance.</div>
+      <div class="problem-title">Plastic Water Can Dependency</div>
+      <div class="problem-desc">Residents spending ₹800–₹1,500/month on 20-litre cans face microplastic exposure, inconsistent quality, and the constant hassle of ordering and storing. It's an outdated solution.</div>
     </div>
     <div class="problem-card warning">
       <div class="problem-num">04</div>
       <div class="problem-icon amber">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
       </div>
-      <div class="problem-title">High Resident Spend</div>
-      <div class="problem-desc">Each resident spends ₹7,000+ per year juggling between water cans (microplastics risk) and RO purifiers (high maintenance, disturbance).</div>
+      <div class="problem-title">Multiple Maintenance Points</div>
+      <div class="problem-desc">100 flats means 100 separate RO units — each needing individual servicing, filter changes, and repair calls. No visibility, no central control, and endless complaints to the RWA.</div>
     </div>
   </div>
 
@@ -1710,6 +1853,13 @@
     #flats-selector option:checked {
       background: #e8f5ed;
       color: #1a4d2e;
+    }
+    /* How ProWater Works 4-step grid */
+    @media (max-width: 1024px) {
+      .how-works-grid { grid-template-columns: repeat(2,1fr) !important; }
+    }
+    @media (max-width: 640px) {
+      .how-works-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 
@@ -1954,58 +2104,187 @@
 <!-- HOW IT WORKS -->
 <section class="how-it-works" id="how">
   <div class="section-tag">The Process</div>
-  <h2 class="section-h2" style="max-width:500px;">From rooftop to your kitchen tap — in 7 steps</h2>
-  <p class="section-lead">Our end-to-end installation is minimally invasive — think gas pipeline, not plumbing overhaul.</p>
+  <h2 class="section-h2" style="max-width:500px;">From sign-up to pure water — in 7 simple steps</h2>
+  <p class="section-lead">We handle everything. Your society just says yes.</p>
 
   <div class="steps-container fade-in">
     <div class="step-card">
       <div class="step-number">1</div>
-      <div class="step-title">Water Quality Test</div>
-      <div class="step-desc">We analyse your inlet water source to design a custom filtration system specific to your area's water profile.</div>
+      <div class="step-title">Site Assessment</div>
+      <div class="step-desc">We visit your society, understand the layout, and evaluate the setup requirements.</div>
     </div>
     <div class="step-card">
       <div class="step-number">2</div>
-      <div class="step-title">Custom System Design</div>
-      <div class="step-desc">Our engineers design a centralized RO plant sized perfectly for your apartment community's daily needs.</div>
+      <div class="step-title">Feasibility Analysis</div>
+      <div class="step-desc">Our team confirms technical fit and designs the right solution for your community's size and water source.</div>
     </div>
     <div class="step-card">
       <div class="step-number">3</div>
-      <div class="step-title">Rooftop Installation</div>
-      <div class="step-desc">Two Central RO plants + 500L anti-microbial storage tanks installed on the terrace. Zero disruption to residents.</div>
+      <div class="step-title">Installation Planning</div>
+      <div class="step-desc">We coordinate with the RWA to schedule a minimal-disruption installation plan.</div>
     </div>
     <div class="step-card">
       <div class="step-number">4</div>
-      <div class="step-title">Waste Water Recovery</div>
-      <div class="step-desc">Plumbing lines redirect softened RO reject water back to the water sump — saving up to 10,800 L/year per household.</div>
+      <div class="step-title">Central RO Setup</div>
+      <div class="step-desc">The centralized RO system is installed on the rooftop and piped through the building.</div>
     </div>
     <div class="step-card">
       <div class="step-number">5</div>
-      <div class="step-title">Flexi Pipe Routing</div>
-      <div class="step-desc">A slim 16mm pipe runs through existing ducts to every home — like your gas line, no complex plumbing changes needed.</div>
+      <div class="step-title">Resident Onboarding</div>
+      <div class="step-desc">Interested residents sign up for their preferred plan. No pressure, no society-wide mandate.</div>
     </div>
     <div class="step-card">
       <div class="step-number">6</div>
-      <div class="step-title">In-Home UV Dispenser</div>
-      <div class="step-desc">A Wi-Fi enabled UV point-of-use dispenser is installed in your kitchen. Choose normal or hot water at a tap.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-number">7</div>
-      <div class="step-title">Subscribe & Enjoy</div>
-      <div class="step-desc">Recharge monthly or annually via the DrinkPrime app. Live TDS tracking. Unlimited pure water. Done.</div>
+      <div class="step-title">Quality Checks</div>
+      <div class="step-desc">Water quality is tested and verified before going live. TDS, bacteria, and mineral levels are confirmed safe.</div>
     </div>
     <div class="step-card" style="background:rgba(168,217,64,0.1);border-color:rgba(168,217,64,0.2);">
-      <div style="margin-bottom:18px;">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect width="44" height="44" rx="14" fill="rgba(168,217,64,0.15)"/>
-          <circle cx="22" cy="20" r="7" stroke="#a8d940" stroke-width="1.8"/>
-          <path d="M22 13v-3M22 30v-3M15 20H12M34 20H31" stroke="#a8d940" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="step-title" style="color:var(--lime-bright);">IoT Dashboard</div>
-      <div class="step-desc">RWA and residents get real-time water quality + consumption analytics via web dashboard and mobile app.</div>
+      <div class="step-number" style="background:rgba(168,217,64,0.2);color:var(--lime-bright);">7</div>
+      <div class="step-title" style="color:var(--lime-bright);">Go Live 🎉</div>
+      <div class="step-desc">Pure water flows to every subscribed home. ProWater monitors, maintains, and manages — ongoing.</div>
     </div>
   </div>
 </section>
+
+<!-- BENEFITS -->
+<section class="benefits-split" id="benefits">
+  <div class="section-tag">The ProWater Difference</div>
+  <h2 class="section-h2">A direct answer to every challenge</h2>
+  <p class="section-lead">ProWater is designed to make the RWA's job easier and residents' lives better — without anyone bearing an upfront cost.</p>
+
+  <div class="benefits-grid fade-in">
+    <div class="benefits-col rwa">
+      <span class="benefits-col-tag">For RWAs</span>
+      <h3 class="benefits-col-h3">Zero burden.<br>Maximum impact.</h3>
+      <ul class="benefit-list">
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>No capital investment required</strong> — ProWater funds and installs the entire system at zero cost to the society</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Reduced tanker dependency</strong> — centralized purification means less reliance on expensive and unreliable water tankers</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Lower water wastage</strong> — society-wide RO wastage drops by up to 90%, saving lakhs of litres every year</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Minimal operational involvement</strong> — ProWater handles all maintenance, servicing and billing. The RWA does nothing</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Sustainability benefits</strong> — reduced plastic can usage, lower STP load, and significant water conservation for the community</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Better resident experience</strong> — pure water on tap, live quality tracking, and a premium amenity that increases property appeal</span>
+        </li>
+      </ul>
+    </div>
+    <div class="benefits-col resident">
+      <span class="benefits-col-tag">For Residents</span>
+      <h3 class="benefits-col-h3">Pure water.<br>No compromise.</h3>
+      <ul class="benefit-list">
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Live TDS tracking</strong> — know your water purity at all times from the app</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Lifetime free AMC</strong> — no service charges, no maintenance bills, ever</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Free <strong>RO dispenser</strong> (normal + hot water) installed in your kitchen</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Zero initial investment</strong> — just pay a small refundable security deposit</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span>Absolute <strong>zero water wastage</strong> — every litre is used, nothing goes to drain</span>
+        </li>
+        <li class="benefit-list-item">
+          <span class="benefit-dot"></span>
+          <span><strong>Upgrade minerals anytime</strong> — switch to Mineral / Copper / Alkaline via app</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- HIGHLIGHT STRIP -->
+<div style="background:linear-gradient(135deg,#1a4d2e 0%,#0d2818 50%,#1a4d2e 100%);padding:64px 60px;position:relative;overflow:hidden;">
+  <!-- Decorative circles -->
+  <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(168,217,64,0.07);"></div>
+  <div style="position:absolute;bottom:-80px;left:-40px;width:280px;height:280px;border-radius:50%;background:rgba(168,217,64,0.05);"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:rgba(168,217,64,0.03);pointer-events:none;"></div>
+
+  <div style="max-width:900px;margin:0 auto;position:relative;z-index:1;">
+
+    <!-- Main heading -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(168,217,64,0.12);border:1px solid rgba(168,217,64,0.25);border-radius:50px;padding:6px 20px;margin-bottom:20px;">
+        <span style="width:7px;height:7px;background:#a8d940;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;"></span>
+        <span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(168,217,64,0.85);">Built for Apartment Communities</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:white;margin:0 0 16px;line-height:1.15;">
+        No Capex. No Operational Burden.
+      </h2>
+      <p style="font-family:'Poppins',sans-serif;font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:640px;margin:0 auto;">
+        ProWater installs, operates, and maintains the infrastructure. Residents subscribe individually, while the society bears <strong style="color:var(--lime-bright);">no setup or maintenance cost</strong>.
+      </p>
+    </div>
+
+    <!-- 3 bullets -->
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:36px;">
+
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(168,217,64,0.2);border-radius:16px;padding:18px 24px;flex:1;min-width:220px;max-width:280px;">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(168,217,64,0.15);border:1px solid rgba(168,217,64,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:white;line-height:1.3;">Installation managed by ProWater</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:3px;">End-to-end, zero RWA involvement</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(168,217,64,0.2);border-radius:16px;padding:18px 24px;flex:1;min-width:220px;max-width:280px;">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(168,217,64,0.15);border:1px solid rgba(168,217,64,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:white;line-height:1.3;">Water quality monitoring included</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:3px;">Live TDS tracking via the ProWater app</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(168,217,64,0.2);border-radius:16px;padding:18px 24px;flex:1;min-width:220px;max-width:280px;">
+        <div style="width:40px;height:40px;border-radius:12px;background:rgba(168,217,64,0.15);border:1px solid rgba(168,217,64,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8d940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:white;line-height:1.3;">Resident billing handled directly</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:3px;">No collection burden on the RWA</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#contact" class="btn-primary" style="font-size:15px;padding:16px 36px;display:inline-flex;align-items:center;gap:10px;background:#a8d940;color:#0d2818;border-color:#a8d940;">
+        Book a Site Assessment
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
 
 <!-- SOLUTION -->
 <section class="solution" id="solution">
@@ -2104,6 +2383,52 @@
 </section>
 
 <!-- PRICING -->
+<!-- STATS STRIP -->
+<section style="background:var(--green-dark);padding:64px 60px;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:44px;">
+      <div class="section-tag" style="color:var(--lime-bright);justify-content:center;margin-bottom:12px;">
+        <span style="display:inline-block;width:20px;height:2px;background:var(--lime);"></span>
+        ProWater by the Numbers
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:white;margin:0;">The impact, in plain numbers</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+
+      <!-- Stat 1 -->
+      <div class="fade-in" style="text-align:center;padding:32px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(168,217,64,0.15);border-radius:20px;">
+        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#a8d940;line-height:1;margin-bottom:8px;">50+</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Apartment Communities</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">Onboarded across Bangalore</div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="fade-in" style="text-align:center;padding:32px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(168,217,64,0.15);border-radius:20px;">
+        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#a8d940;line-height:1;margin-bottom:8px;">1Cr+</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Litres of Water Saved</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">Recovered from wastage annually</div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="fade-in" style="text-align:center;padding:32px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(168,217,64,0.15);border-radius:20px;">
+        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#a8d940;line-height:1;margin-bottom:8px;">90%</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Lower RO Wastage</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">Vs. individual household RO units</div>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="fade-in" style="text-align:center;padding:32px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(168,217,64,0.15);border-radius:20px;">
+        <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#a8d940;line-height:1;margin-bottom:8px;">5K+</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Subscribing Households</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">And growing every month</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="pricing" id="pricing">
   <div class="section-tag">Subscription Plans</div>
   <h2 class="section-h2 poppins-h2">Unlimited pure water for less than ₹10/day</h2>
@@ -2125,6 +2450,14 @@
     </div>
   </div>
 
+
+  <!-- Pricing note -->
+  <div style="text-align:center;margin-bottom:24px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(26,77,46,0.06);border:1px solid rgba(26,77,46,0.12);border-radius:50px;padding:9px 22px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+      <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--green-dark);">Residents subscribe individually. The society bears no subscription cost.</span>
+    </div>
+  </div>
 
   <!-- 3 Device-Type Cards -->
   <div id="pricing-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;padding-top:24px;align-items:stretch;">
@@ -2156,7 +2489,7 @@
     <!-- Card 2: Normal Device -->
     <div id="card-2" class="pricing-card" style="border-radius:20px;padding:0;overflow:hidden;border:1.5px solid rgba(26,77,46,0.12);background:var(--white);transition:opacity 0.4s ease,transform 0.4s ease;display:flex;flex-direction:column;">
       <div style="background:var(--green-mid);padding:14px 24px;text-align:center;position:relative;">
-        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:white;">Normal Device</div>
+        <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:white;">ProWater Standard</div>
         <div id="p2-discount" style="display:none;position:absolute;top:10px;right:14px;background:#a8d940;color:#0d2818;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">10% OFF</div>
       </div>
       <div style="padding:28px 24px;flex:1;display:flex;flex-direction:column;">
@@ -2181,7 +2514,7 @@
       </div>
     </div>
 
-    <!-- Card 3: Hot & Ambient Device — BEST SELLER -->
+    <!-- Card 3: ProWater Premium — BEST SELLER -->
     <div id="card-3" class="pricing-card" style="border-radius:20px;padding:0;overflow:visible;border:none;background:transparent;box-shadow:none;transition:opacity 0.4s ease,transform 0.4s ease;position:relative;margin-top:-16px;">
 
       <!-- Best Seller ribbon banner above card -->
@@ -2208,7 +2541,7 @@
           <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.07);"></div>
           <div style="position:absolute;bottom:-30px;left:-10px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
 
-          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:white;position:relative;z-index:1;">Hot &amp; Ambient Device</div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:white;position:relative;z-index:1;">ProWater Premium</div><div style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);margin-top:3px;font-weight:500;position:relative;z-index:1;">With Hot Mode included</div>
           <div style="font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,255,255,0.75);margin-top:3px;position:relative;z-index:1;">Most chosen by residents ✦</div>
 
           <!-- 10% OFF badge -->
@@ -2222,7 +2555,7 @@
             <div style="font-family:'Poppins',sans-serif;font-weight:800;font-size:44px;line-height:1;color:var(--green-dark);"><span id="p3-price">₹499</span></div>
             <div id="p3-original" style="display:none;font-family:'Poppins',sans-serif;font-size:18px;font-weight:500;color:rgb(180,170,170);text-decoration:line-through;">₹499</div>
           </div>
-          <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);margin-bottom:18px;" id="p3-period">/month · Hot &amp; Ambient device</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);margin-bottom:18px;" id="p3-period">/month · Normal + Hot water</div>
 
           <div id="p3-amount" style="margin-bottom:22px;padding:12px 16px;background:var(--green-pale);border-radius:12px;border:1px solid rgba(26,77,46,0.12);font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:rgb(78,75,102);">
             Amount to pay: <strong style="color:var(--green-dark);font-weight:700;">₹4,499</strong>
@@ -2248,17 +2581,7 @@
             </li>
           </ul>
 
-          <!-- Social proof bar -->
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding:10px 14px;background:var(--green-pale);border-radius:10px;border:1px solid rgba(26,77,46,0.1);">
-            <div style="display:flex;">
-              <div style="width:22px;height:22px;border-radius:50%;background:#2d7a4f;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;">R</div>
-              <div style="width:22px;height:22px;border-radius:50%;background:#1a4d2e;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;margin-left:-6px;">K</div>
-              <div style="width:22px;height:22px;border-radius:50%;background:#4caf7d;border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;font-weight:700;margin-left:-6px;">M</div>
-            </div>
-            <span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;color:rgb(78,75,102);">Chosen by <strong style="color:var(--green-dark);">2,400+ residents</strong> this month</span>
-          </div>
-
-          <button class="btn-plan btn-hot-plan" onclick="selectCard(3)" style="font-family:'Poppins',sans-serif;font-weight:700;background:var(--green-dark);color:white;border-color:transparent;font-size:15px;letter-spacing:0.02em;box-shadow:0 4px 16px rgba(26,77,46,0.3);">Get Started →</button>
+          <button class="btn-plan btn-hot-plan" onclick="selectCard(3)" style="font-family:'Poppins',sans-serif;font-weight:700;background:var(--green-dark);color:white;border-color:transparent;font-size:15px;letter-spacing:0.02em;box-shadow:0 4px 16px rgba(26,77,46,0.3);margin-top:auto;">Get Started →</button>
         </div>
       </div>
     </div>
@@ -2269,79 +2592,10 @@
   </div>
 
   <div class="pricing-note" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:13px;">
-    Security deposit is fully refundable · Upgrade mineral type anytime via the app · Normal device deposit: ₹2,000 · Hot &amp; Ambient device deposit: ₹4,000
+    Security deposit is fully refundable · Upgrade mineral type anytime via the app · Normal device deposit: ₹2,000 · ProWater Premium device deposit: ₹4,000
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="benefits-split" id="benefits">
-  <div class="section-tag">Win-Win</div>
-  <h2 class="section-h2">Benefits for everyone in your society</h2>
-  <p class="section-lead">ProWater is designed to make both the RWA's job easier and residents' lives better.</p>
-
-  <div class="benefits-grid fade-in">
-    <div class="benefits-col rwa">
-      <span class="benefits-col-tag">For RWAs</span>
-      <h3 class="benefits-col-h3">Less admin.<br>More savings.</h3>
-      <ul class="benefit-list">
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Zero setup cost</strong> — we bear 100% of infrastructure installation</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span>Save <strong>10 lakh litres/year</strong> → ₹2.5 lakh cost saving on 100% adoption</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Dedicated technician</strong> assigned to your society with same-day response</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span>Society-level <strong>water dashboard</strong> — track consumption, quality, and savings</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Per-apartment billing</strong> done automatically — no monthly collection headaches</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span>Reduces <strong>STP load</strong> significantly — fewer maintenance emergencies</span>
-        </li>
-      </ul>
-    </div>
-    <div class="benefits-col resident">
-      <span class="benefits-col-tag">For Residents</span>
-      <h3 class="benefits-col-h3">Pure water.<br>No compromise.</h3>
-      <ul class="benefit-list">
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Live TDS tracking</strong> — know your water purity at all times from the app</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Lifetime free AMC</strong> — no service charges, no maintenance bills, ever</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span>Free <strong>RO dispenser</strong> (normal + hot water) installed in your kitchen</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Zero initial investment</strong> — just pay a small refundable security deposit</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span>Absolute <strong>zero water wastage</strong> — every litre is used, nothing goes to drain</span>
-        </li>
-        <li class="benefit-list-item">
-          <span class="benefit-dot"></span>
-          <span><strong>Upgrade minerals anytime</strong> — switch to Mineral / Copper / Alkaline via app</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 <!-- TESTIMONIALS -->
 <section style="padding:90px 60px;background:var(--white);">
@@ -2613,12 +2867,12 @@
     monthly: {
       p1: { price: '₹299', period: '/month · Own device', amount: '₹2,299', deposit: '₹2,000', isHot: false },
       p2: { price: '₹399', period: '/month · Normal device', amount: '₹2,399', deposit: '₹2,000', isHot: false },
-      p3: { price: '₹499', period: '/month · Hot & Ambient device', amount: '₹4,499', deposit: '₹4,000', isHot: true },
+      p3: { price: '₹499', period: '/month · Normal + Hot water', amount: '₹4,499', deposit: '₹4,000', isHot: true },
     },
     annual: {
       p1: { price: '₹299', period: '/month · Annual plan · Own device', amount: '₹5,588', deposit: '₹2,000', isHot: false },
       p2: { price: '₹359', period: '/month · Annual plan · Normal device', amount: '₹5,877', deposit: '₹2,000', isHot: false },
-      p3: { price: '₹449', period: '/month · Annual plan · Hot & Ambient device', amount: '₹8,849', deposit: '₹4,000', isHot: true },
+      p3: { price: '₹449', period: '/month · Annual plan · Normal + Hot water', amount: '₹8,849', deposit: '₹4,000', isHot: true },
     }
   };
 
@@ -2779,7 +3033,7 @@
 
     <!-- Enlarged SVG Animation -->
     <div style="background:rgba(10,28,18,0.6);border-radius:16px;padding:20px 16px 14px;border:1px solid rgba(168,217,64,0.15);">
-      <svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+      <svg viewBox="0 0 410 215" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
         <defs>
           <linearGradient id="roGradModal" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" style="stop-color:#a8d940"/>
@@ -2792,7 +3046,8 @@
         <text x="112" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">CENTRAL RO</text>
         <text x="200" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">STORAGE</text>
         <text x="268" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">HOME TAP</text>
-        <text x="332" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+        <text x="318" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">IoT</text>
+        <text x="388" y="13" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600">APP</text>
 
         <!-- 1. INLET SOURCE -->
         <circle cx="36" cy="42" r="14" fill="rgba(255,255,255,0.07)" stroke="rgba(168,217,64,0.45)" stroke-width="1.5"/>
@@ -2876,14 +3131,14 @@
         </circle>
 
         <!-- WIRE UV→IoT -->
-        <path d="M290,168 Q318,168 332,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
-        <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
-        <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q318,168 332,94"/></mpath></animateMotion></circle>
-        <rect x="310" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
-        <text x="323" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
+        <path d="M290,168 Q310,168 318,94" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+        <circle r="2.5" fill="#a8d940" opacity="0.9"><animateMotion dur="2s" repeatCount="indefinite" begin="0s"><mpath><path d="M290,168 Q310,168 318,94"/></mpath></animateMotion></circle>
+        <circle r="2" fill="#a8d940" opacity="0.6"><animateMotion dur="2s" repeatCount="indefinite" begin="0.75s"><mpath><path d="M290,168 Q310,168 318,94"/></mpath></animateMotion></circle>
+        <rect x="296" y="130" width="26" height="10" rx="5" fill="rgba(168,217,64,0.12)"/>
+        <text x="309" y="137" text-anchor="middle" fill="rgba(168,217,64,0.85)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">DATA</text>
 
-        <!-- 5. IoT MONITOR -->
-        <g transform="translate(332,68)">
+        <!-- 5. IoT MONITOR (shifted to 318) -->
+        <g transform="translate(318,68)">
           <rect x="-22" y="-18" width="44" height="32" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(168,217,64,0.6)" stroke-width="1.5"/>
           <rect x="-17" y="-13" width="34" height="19" rx="3" fill="rgba(168,217,64,0.1)"/>
           <polyline points="-13,-6 -8,-2 -3,-9 2,-4 7,-8 12,-3 17,-7" fill="none" stroke="#a8d940" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2893,6 +3148,42 @@
             <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>&#x1F4F6;</text>
           <text x="0" y="36" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6.5" font-family="Poppins,sans-serif" font-weight="600">IoT MONITOR</text>
           <circle cx="20" cy="-22" r="7" fill="#a8d940"/><text x="20" y="-18" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">5</text>
+        </g>
+
+        <!-- WIRE IoT→Mobile App -->
+        <path d="M340,68 L374,68" stroke="rgba(168,217,64,0.4)" stroke-width="2" fill="none" stroke-dasharray="3,2" stroke-linecap="round"/>
+        <circle r="2" fill="#a8d940" opacity="0.8"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath><path d="M340,68 L374,68"/></mpath></animateMotion></circle>
+
+        <!-- 6. MOBILE APP -->
+        <g transform="translate(388,68)">
+          <!-- Phone body -->
+          <rect x="-14" y="-28" width="28" height="48" rx="6" fill="rgba(26,77,46,0.85)" stroke="rgba(96,208,255,0.7)" stroke-width="1.5"/>
+          <!-- Screen -->
+          <rect x="-10" y="-23" width="20" height="30" rx="3" fill="rgba(96,208,255,0.12)"/>
+          <!-- Status dots -->
+          <circle cx="-4" cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="0"  cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="4"  cy="-19" r="1.2" fill="rgba(255,255,255,0.4)"/>
+          <!-- TDS gauge arc -->
+          <path d="M-7,-8 A7,7 0 0,1 7,-8" fill="none" stroke="rgba(168,217,64,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M-7,-8 A7,7 0 0,1 4,-12" fill="none" stroke="#a8d940" stroke-width="2.5" stroke-linecap="round">
+            <animate attributeName="stroke-dasharray" values="0,20;14,20;14,20" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <text x="0" y="-4" text-anchor="middle" fill="#a8d940" font-size="5.5" font-family="Poppins,sans-serif" font-weight="700">TDS</text>
+          <text x="0" y="3"  text-anchor="middle" fill="rgba(96,208,255,0.9)" font-size="5" font-family="Poppins,sans-serif">LIVE</text>
+          <!-- Mini bar chart -->
+          <rect x="-8" y="8" width="3" height="5" rx="1" fill="rgba(168,217,64,0.5)"/>
+          <rect x="-4" y="6" width="3" height="7" rx="1" fill="rgba(168,217,64,0.7)"/>
+          <rect x="0"  y="4" width="3" height="9" rx="1" fill="#a8d940"/>
+          <rect x="4"  y="7" width="3" height="6" rx="1" fill="rgba(168,217,64,0.6)"/>
+          <!-- Home button -->
+          <circle cx="0" cy="22" r="3" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+          <!-- Notch -->
+          <rect x="-5" y="-28" width="10" height="3" rx="1.5" fill="rgba(0,0,0,0.4)"/>
+          <text x="0" y="30" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-family="Poppins,sans-serif" font-weight="600">MOBILE APP</text>
+          <!-- Badge 6 -->
+          <circle cx="13" cy="-32" r="7" fill="#60d0ff"/>
+          <text x="13" y="-28" text-anchor="middle" fill="#0d2818" font-size="8" font-weight="bold" font-family="Poppins,sans-serif">6</text>
         </g>
 
         <!-- ZERO WASTE BADGE -->
@@ -2918,6 +3209,9 @@
       </div>
       <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
         <span style="width:22px;height:22px;border-radius:7px;background:#a8d940;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">5</span>IoT Monitor
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);">
+        <span style="width:22px;height:22px;border-radius:7px;background:#60d0ff;color:#0d2818;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">6</span>Mobile App
       </div>
     </div>
 
@@ -3744,7 +4038,7 @@
     },
     {
       q: ['hot water','hot and ambient','hot device'],
-      a: `Yes! We offer a <strong>Hot and Ambient Device</strong> that provides both normal and instant hot water at your tap. Available at Rs.499/month (monthly) or Rs.449/month (annual) with a Rs.4,000 refundable deposit.`
+      a: `Yes! ProWater Premium includes a <strong>Hot Mode</strong> that gives you normal and hot water on tap. Available at Rs.499/month (monthly) or Rs.449/month (annual) with a Rs.4,000 refundable deposit.`
     },
     {
       q: ['install','installation','setup','how to install','install process'],
