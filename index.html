@@ -220,6 +220,7 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    justify-content: center;
   }
   .btn-primary {
     background: var(--lime-bright);
@@ -1424,8 +1425,8 @@
     <p class="hero-sub">
       A centralized piped RO system for apartment communities where only subscribing households pay. Reduce tanker dependence, eliminate RO water wastage, and avoid the hassle of individual systems.
     </p>
-    <div class="hero-actions">
-      <button onclick="openLeadModal()" class="btn-primary" style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">
+    <div class="hero-actions" style="justify-content:center;">
+      <button onclick="openLeadModal()" class="btn-primary" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;">
         Book a Site Assessment
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
