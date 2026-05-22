@@ -160,6 +160,8 @@
     border-radius: 50%;
     background: rgba(141,198,63,0.08);
     bottom: -200px; right: -150px;
+    z-index: 0;
+    pointer-events: none;
   }
   .hero-left::after {
     content: '';
@@ -168,6 +170,8 @@
     border-radius: 50%;
     background: rgba(141,198,63,0.05);
     top: -100px; left: -80px;
+    z-index: 0;
+    pointer-events: none;
   }
   .hero-badge {
     display: inline-flex;
@@ -374,6 +378,8 @@
     position: absolute;
     border-radius: 50%;
     background: rgba(76,175,125,0.12);
+    z-index: 0;
+    pointer-events: none;
   }
 
   /* SECTION SHARED */
@@ -1425,7 +1431,7 @@
     <p class="hero-sub">
       A centralized piped RO system for apartment communities where only subscribing households pay. Reduce tanker dependence, eliminate RO water wastage, and avoid the hassle of individual systems.
     </p>
-    <div class="hero-actions" style="justify-content:center;">
+    <div class="hero-actions" style="justify-content:center;position:relative;z-index:2;">
       <button onclick="openLeadModal()" class="btn-primary" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;">
         Book a Site Assessment
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
