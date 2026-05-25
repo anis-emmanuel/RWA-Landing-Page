@@ -24,7 +24,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; width: 100%; overflow-x: hidden; }
 
   #hero, #waste-section, #how, #solution, #pricing, #benefits, #contact, #problem {
     scroll-margin-top: 90px;
@@ -38,6 +38,8 @@
     color: rgb(78, 75, 102);
     background: var(--cream);
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5 {
@@ -141,6 +143,8 @@
     overflow: hidden;
     padding-top: 80px;
     gap: 0;
+    width: 100%;
+    max-width: 100%;
   }
   .hero-left {
     background: var(--green-dark);
@@ -1133,8 +1137,8 @@
     .nav-links a { font-size: 13px; }
 
     /* Hero stacks vertically */
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 100px 36px 60px; text-align: center; align-items: center; }
+    .hero { grid-template-columns: 1fr; min-height: auto; width: 100%; }
+    .hero-left { padding: 100px 36px 60px; text-align: center; align-items: center; margin: 0 !important; border-radius: 0 !important; width: 100%; }
     .hero-badge { margin: 0 auto 24px; }
     .hero-actions { justify-content: center; }
     .hero-stats { justify-content: center; }
@@ -1186,10 +1190,10 @@
     .nav-logo-text { font-size: 18px; }
 
     /* Hero */
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 90px 24px 48px; text-align: center; }
+    .hero { grid-template-columns: 1fr; width: 100%; }
+    .hero-left { padding: 90px 24px 48px; text-align: center; margin: 0 !important; border-radius: 0 !important; width: 100%; }
     .hero-h1 { font-size: 36px; line-height: 1.12; }
-    .hero-right { padding: 32px 24px 48px; }
+    .hero-right { padding: 32px 24px 48px; width: 100%; }
     .hero-visual-card { padding: 20px; }
     .hero-stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
     .hero-stat-num { font-size: 26px; }
@@ -1357,7 +1361,7 @@
 <nav id="navbar">
   <div class="nav-logo" style="display:flex;align-items:center;gap:10px;">
     <img src="https://play-lh.googleusercontent.com/b50YdSvf0KbXes4wVlajtFXD-21vEiHAO0ZmmDURL9uJNGYpbLht8KUNpeJxMPjzCksZLYjN-A3DuOWWvV7suUs=w240-h480-rw" alt="ProWater Logo" style="height:42px;width:42px;object-fit:contain;border-radius:0;" onerror="this.style.display='none'">
-    <div class="nav-logo-text" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark);">Pro<span style="color:var(--lime);">Water</span></div>
+    <div class="nav-logo-text" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark);">ProWater</div>
   </div>
   <ul class="nav-links">
     <li><a href="#waste-section">The Problem</a></li>
@@ -4467,6 +4471,7 @@
     if (e.key === 'Escape') closeExitModal();
   });
 </script>
+
 
 </body>
 </html>
