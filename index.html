@@ -1151,6 +1151,7 @@
 
     /* Problem grid 2 cols */
     .problems-grid { grid-template-columns: 1fr 1fr; }
+    .challenges-grid { grid-template-columns: 1fr 1fr !important; }
     .waste-highlight { grid-template-columns: 1fr; gap: 32px; }
 
     /* Steps 2x4 grid */
@@ -1207,6 +1208,7 @@
 
     /* Problems */
     .problems-grid { grid-template-columns: 1fr; }
+    .challenges-grid { grid-template-columns: 1fr !important; }
     .waste-highlight { padding: 32px 24px; grid-template-columns: 1fr; }
     .waste-table-row { font-size: 12px; padding: 12px 14px; }
 
@@ -1364,6 +1366,7 @@
     <div class="nav-logo-text" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green-dark);">ProWater</div>
   </div>
   <ul class="nav-links">
+    <li><a href="http://staging.prowater.in/" target="_blank">Home</a></li>
     <li><a href="#waste-section">The Problem</a></li>
     <li><a href="#hero">Our Solution</a></li>
     <li><a href="#how">How It Works</a></li>
@@ -1380,6 +1383,7 @@
 
 <!-- Mobile Menu -->
 <div class="nav-mobile-menu" id="mobile-menu">
+  <a href="http://staging.prowater.in/" target="_blank" onclick="closeMobileMenu()">Home</a>
   <a href="#waste-section" onclick="closeMobileMenu()">The Problem</a>
   <a href="#hero" onclick="closeMobileMenu()">Our Solution</a>
   <a href="#how" onclick="closeMobileMenu()">How It Works</a>
@@ -1784,7 +1788,7 @@
   <h2 class="section-h2">The water problems every apartment community faces</h2>
   <p class="section-lead">From rising tanker bills to scattered maintenance — conventional water setups are costing your society more than you think.</p>
 
-  <div class="fade-in" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;margin-top:20px;">
+  <div class="fade-in challenges-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;margin-top:20px;">
 
     <!-- Card 1 -->
     <div style="position:relative;z-index:1;background:var(--white);border-radius:20px;padding:28px 24px 24px;border:1.5px solid rgba(230,57,70,0.15);box-shadow:0 4px 20px rgba(26,77,46,0.05);text-align:center;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 12px 36px rgba(26,77,46,0.12)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,77,46,0.05)';this.style.transform='none'">
