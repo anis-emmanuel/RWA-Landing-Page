@@ -1870,6 +1870,20 @@
     @media (max-width: 768px) {
       .numbers-section { padding: 56px 20px !important; }
     }
+
+    /* Get Started Today — contact grid */
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: repeat(2,1fr) !important; border-radius: 16px !important; }
+      .contact-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .contact-grid > div:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08) !important; }
+      .contact-grid > div:last-child,
+      .contact-grid > div:nth-last-child(2):nth-child(odd) { border-bottom: none !important; }
+    }
+    @media (max-width: 480px) {
+      .contact-grid { grid-template-columns: 1fr !important; }
+      .contact-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+      .contact-grid > div:last-child { border-bottom: none !important; }
+    }
   </style>
 
   <!-- BEFORE / AFTER PROWATER BENEFITS -->
@@ -2788,7 +2802,7 @@
       <div style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.45);margin-bottom:12px;text-align:center;">Want to Speak?</div>
 
       <!-- Three options inline -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;max-width:960px;margin:0 auto;border:1px solid rgba(168,217,64,0.2);border-radius:16px;overflow:hidden;">
+      <div class="contact-grid" style="display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;max-width:960px;margin:0 auto;border:1px solid rgba(168,217,64,0.2);border-radius:16px;overflow:hidden;">
 
         <!-- Call us -->
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:rgba(255,255,255,0.06);gap:10px;border-right:1px solid rgba(255,255,255,0.08);">
