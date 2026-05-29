@@ -1884,6 +1884,26 @@
       .contact-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
       .contact-grid > div:last-child { border-bottom: none !important; }
     }
+
+    /* Before / After comparison grid */
+    @media (max-width: 640px) {
+      .before-after-grid { grid-template-columns: 1fr !important; }
+      .before-after-col { padding: 24px 20px 28px !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .before-after-col:last-child { border-bottom: none; }
+    }
+
+    /* Testimonial section padding */
+    .testi-section { padding: 90px 60px; }
+    @media (max-width: 768px) {
+      .testi-section { padding: 56px 20px !important; }
+    }
+
+    /* Testimonial author row — Chrome iOS fix */
+    .testi-author-row { flex-wrap: wrap; }
+    @media (max-width: 480px) {
+      .testi-author-row { gap: 10px; }
+      .testi-author-row > div:last-child { margin-left: 0; }
+    }
   </style>
 
   <!-- BEFORE / AFTER PROWATER BENEFITS -->
@@ -1896,10 +1916,10 @@
     </div>
 
     <!-- Two columns -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+    <div class="before-after-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
 
       <!-- ══ LEFT: BEFORE ══ -->
-      <div style="padding:28px 32px 36px;border-right:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15);">
+      <div class="before-after-col" style="padding:28px 32px 36px;border-right:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.15);">
         <!-- Header -->
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
           <div style="width:36px;height:36px;border-radius:50%;background:rgba(200,80,80,0.15);border:1.5px solid rgba(200,80,80,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -1962,7 +1982,7 @@
       </div>
 
       <!-- ══ RIGHT: AFTER ══ -->
-      <div style="padding:28px 32px 36px;background:rgba(168,217,64,0.04);">
+      <div class="before-after-col" style="padding:28px 32px 36px;background:rgba(168,217,64,0.04);">
         <!-- Header -->
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
           <div style="width:36px;height:36px;border-radius:50%;background:rgba(168,217,64,0.15);border:1.5px solid rgba(168,217,64,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -2618,14 +2638,7 @@
 
 
 <!-- TESTIMONIALS -->
-<section style="padding:90px 60px;background:var(--white);">
-  <div style="max-width:1100px;margin:0 auto;">
-
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:48px;">
-      <div class="section-tag" style="justify-content:center;margin-bottom:14px;">
-        <span style="display:inline-block;width:20px;height:2px;background:var(--lime);"></span>
-        What RWAs Say
+<section class="testi-section" style="padding:90px 60px;background:var(--white);">
       </div>
       <h2 class="section-h2">Trusted by societies<br><em style="font-style:italic;color:var(--green-mid);">across Bangalore</em></h2>
       <p style="font-family:'Poppins',sans-serif;font-size:15px;color:var(--text-light);margin-top:12px;">Real feedback from RWA managers who made the switch</p>
@@ -2641,13 +2654,13 @@
             <span style="color:#f5c518;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-family:'Poppins',sans-serif;font-size:14px;line-height:1.75;color:rgb(40,60,50);margin:0 0 20px;">"ProWater transformed our society. We used to spend lakhs on water cans every year. Now every flat gets pure water on tap at a fraction of the cost. The zero-setup promise is real — they installed everything within a week."</p>
-          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);">
+          <div class="testi-author-row" style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);flex-wrap:wrap;">
             <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a4d2e,#2d7a4f);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:white;flex-shrink:0;">R</div>
-            <div>
+            <div style="flex:1;min-width:0;">
               <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:rgb(12,58,64);">Rajesh Kumar</div>
               <div style="font-family:'Poppins',sans-serif;font-size:11px;color:var(--text-light);margin-top:2px;">RWA Secretary · Ashish JK, Bangalore</div>
             </div>
-            <div style="margin-left:auto;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
+            <div style="flex-shrink:0;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
               <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;color:var(--green-dark);">Verified ✓</span>
             </div>
           </div>
@@ -2659,13 +2672,13 @@
             <span style="color:#f5c518;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-family:'Poppins',sans-serif;font-size:14px;line-height:1.75;color:rgb(40,60,50);margin:0 0 20px;">"The IoT monitoring app is a game changer. Our residents check water quality from their phones every day. We have saved over 8 lakh litres of water this year alone. ProWater's team responds within hours — truly excellent service."</p>
-          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);">
+          <div class="testi-author-row" style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);flex-wrap:wrap;">
             <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2d7a4f,#4caf7d);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:white;flex-shrink:0;">M</div>
-            <div>
+            <div style="flex:1;min-width:0;">
               <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:rgb(12,58,64);">Meena Sridharan</div>
               <div style="font-family:'Poppins',sans-serif;font-size:11px;color:var(--text-light);margin-top:2px;">RWA President · CBR Akruti, Bangalore</div>
             </div>
-            <div style="margin-left:auto;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
+            <div style="flex-shrink:0;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
               <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;color:var(--green-dark);">Verified ✓</span>
             </div>
           </div>
@@ -2677,13 +2690,13 @@
             <span style="color:#f5c518;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-family:'Poppins',sans-serif;font-size:14px;line-height:1.75;color:rgb(40,60,50);margin:0 0 20px;">"We were spending ₹4.5 lakhs a year on water cans for 150 flats. After ProWater, it's down to ₹90,000. The installation was completed in just 5 days and not a single resident has complained since. Highly recommended."</p>
-          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);">
+          <div class="testi-author-row" style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);flex-wrap:wrap;">
             <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a4d2e,#a8d940);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:white;flex-shrink:0;">S</div>
-            <div>
+            <div style="flex:1;min-width:0;">
               <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:rgb(12,58,64);">Suresh Naidu</div>
               <div style="font-family:'Poppins',sans-serif;font-size:11px;color:var(--text-light);margin-top:2px;">Facilities Manager · MJR Pearl, Bangalore</div>
             </div>
-            <div style="margin-left:auto;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
+            <div style="flex-shrink:0;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
               <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;color:var(--green-dark);">Verified ✓</span>
             </div>
           </div>
@@ -2695,13 +2708,13 @@
             <span style="color:#f5c518;font-size:16px;">★★★★★</span>
           </div>
           <p style="font-family:'Poppins',sans-serif;font-size:14px;line-height:1.75;color:rgb(40,60,50);margin:0 0 20px;">"The hot and ambient water dispenser was the reason we chose ProWater over others. Residents love having hot water on tap instantly. The ProWater app shows live data and the team is always reachable. Best decision our RWA made."</p>
-          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);">
+          <div class="testi-author-row" style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(26,77,46,0.08);flex-wrap:wrap;">
             <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2d7a4f,#1a4d2e);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:white;flex-shrink:0;">P</div>
-            <div>
+            <div style="flex:1;min-width:0;">
               <div style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:rgb(12,58,64);">Priya Venkatesh</div>
               <div style="font-family:'Poppins',sans-serif;font-size:11px;color:var(--text-light);margin-top:2px;">RWA Treasurer · SVS Grand, Bangalore</div>
             </div>
-            <div style="margin-left:auto;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
+            <div style="flex-shrink:0;background:var(--green-pale);border-radius:8px;padding:4px 10px;">
               <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;color:var(--green-dark);">Verified ✓</span>
             </div>
           </div>
