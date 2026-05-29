@@ -1697,7 +1697,7 @@
 </section>
 
 <!-- HOW PROWATER WORKS -->
-<section style="padding:80px 60px;background:var(--white);">
+<section class="how-prowater-works-section" style="padding:80px 60px;background:var(--white);">
   <div style="max-width:1100px;margin:0 auto;">
 
     <!-- Header -->
@@ -1711,7 +1711,7 @@
     </div>
 
     <!-- 4 Steps grid -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
+    <div class="how-works-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
 
       <!-- Connecting line behind cards -->
       <div style="position:absolute;top:44px;left:calc(12.5% + 12px);right:calc(12.5% + 12px);height:2px;background:linear-gradient(90deg,var(--green-dark),var(--lime-bright),var(--green-mid),var(--green-dark));opacity:0.2;z-index:0;border-radius:1px;"></div>
@@ -1841,12 +1841,34 @@
       background: #e8f5ed;
       color: #1a4d2e;
     }
+    /* How ProWater Works section padding */
+    @media (max-width: 768px) {
+      .how-prowater-works-section { padding: 56px 20px !important; }
+    }
+
     /* How ProWater Works 4-step grid */
     @media (max-width: 1024px) {
       .how-works-grid { grid-template-columns: repeat(2,1fr) !important; }
     }
     @media (max-width: 640px) {
       .how-works-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ProWater by the Numbers stats grid */
+    @media (max-width: 1024px) {
+      .numbers-grid { grid-template-columns: repeat(2,1fr) !important; }
+    }
+    @media (max-width: 640px) {
+      .numbers-grid { grid-template-columns: repeat(2,1fr) !important; }
+    }
+    @media (max-width: 400px) {
+      .numbers-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Numbers section padding */
+    .numbers-section { padding: 64px 60px; }
+    @media (max-width: 768px) {
+      .numbers-section { padding: 56px 20px !important; }
     }
   </style>
 
@@ -2371,7 +2393,7 @@
 
 <!-- PRICING -->
 <!-- STATS STRIP -->
-<section style="background:var(--green-dark);padding:64px 60px;">
+<section class="numbers-section" style="background:var(--green-dark);padding:64px 60px;">
   <div style="max-width:1100px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:44px;">
@@ -2382,7 +2404,7 @@
       <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:white;margin:0;">The impact, in plain numbers</h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+    <div class="numbers-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
 
       <!-- Stat 1 -->
       <div class="fade-in" style="text-align:center;padding:32px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(168,217,64,0.15);border-radius:20px;">
